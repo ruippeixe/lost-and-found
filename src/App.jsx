@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import Home from "./pages/Home";
 import Lost from "./pages/Lost";
-import Found from "./pages/Found";
+import Found from "./pages/found/Found";
 import Error from "./pages/Error";
 // import "./App.css";
 
