@@ -20,7 +20,12 @@ const Found = () => {
     <Thanks />,
   ];
 
-  const { currentComponent, back, next } = useFormSteps(formSteps);
+  const { currentComponent, back, next, isFirstStep, isLastStep, isGreeting } =
+    useFormSteps(formSteps);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -32,17 +37,28 @@ const Found = () => {
           </ul>
         </nav>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           {currentComponent}
 
-          <div className="actions">
-            <button type="button" onClick={back}>
-              back
-            </button>
-            <button type="button" onClick={next}>
-              next
-            </button>
-          </div>
+          {!isGreeting && (
+            <div className="actions">
+              {!isFirstStep && (
+                <button type="button" onClick={back}>
+                  back
+                </button>
+              )}
+
+              {!isLastStep ? (
+                <button type="button" onClick={next}>
+                  next
+                </button>
+              ) : (
+                <button type="submit" onClick={next}>
+                  submit
+                </button>
+              )}
+            </div>
+          )}
         </form>
       </div>
     </>

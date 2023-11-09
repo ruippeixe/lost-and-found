@@ -22,6 +22,9 @@ const useFormSteps = (steps) => {
     currentComponent: steps[currentStepIndex],
     back,
     next,
+    isFirstStep: currentStepIndex === 0,
+    isLastStep: currentStepIndex === steps.length -2,
+    isGreeting: currentStepIndex === steps.length -1,
   };
 };
 
