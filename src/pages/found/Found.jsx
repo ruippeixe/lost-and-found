@@ -1,27 +1,44 @@
 import What from "./What";
 import Who from "./Who";
 import Where from "./Where";
-import On from "./On";
-import And from "./And";
-import How from "./How";
+import Date from "./Date";
+import Time from "./Time";
+import Email from "./Email";
 import Thanks from "./Thanks";
 import "./found.scss";
 import "../../hooks/useFormSteps";
 import useFormSteps from "../../hooks/useFormSteps";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Found = () => {
+  const [data, setData] = useState({
+    what: "",
+    who: "",
+    where: "",
+    date: "",
+    time: "",
+    email: "",
+  });
+
+  const updateFieldHandler = (key, value) => {
+    setData((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
+
   const formSteps = [
-    <What />,
-    <Who />,
-    <Where />,
-    <On />,
-    <And />,
-    <How />,
-    <Thanks />,
+    <What key="what" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Who key="who" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Where key="where" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Date key="date" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Time key="time" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Email key="email" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Thanks key="thanks" data={data} updateFieldHandler={updateFieldHandler} />,
   ];
 
   const { currentComponent, back, next, isFirstStep, isLastStep, isGreeting } =
-    useFormSteps(formSteps);
+    useFormSteps(formSteps, data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,6 +74,14 @@ const Found = () => {
                   submit
                 </button>
               )}
+            </div>
+          )}
+
+          {isGreeting && (
+            <div className="actions">
+              <button>
+                <Link to="/">go back to home page</Link>
+              </button>
             </div>
           )}
         </form>

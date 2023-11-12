@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useFormSteps = (steps) => {
+const useFormSteps = (steps, data) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   function back() {
@@ -11,6 +11,9 @@ const useFormSteps = (steps) => {
   }
 
   function next() {
+    const stepValue = steps[currentStepIndex].key;
+    if (data[stepValue] === "") return;
+
     setCurrentStepIndex((i) => {
       if (i >= steps.length - 1) return i;
       return i + 1;
@@ -23,8 +26,8 @@ const useFormSteps = (steps) => {
     back,
     next,
     isFirstStep: currentStepIndex === 0,
-    isLastStep: currentStepIndex === steps.length -2,
-    isGreeting: currentStepIndex === steps.length -1,
+    isLastStep: currentStepIndex === steps.length - 2,
+    isGreeting: currentStepIndex === steps.length - 1,
   };
 };
 

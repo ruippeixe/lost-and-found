@@ -1,11 +1,24 @@
+import PropTypes from "prop-types";
 import "./found.scss";
 
-const Who = () => {
+const Who = (props) => {
   return (
-    <>
-      <h1>who</h1>
-    </>
+    <div className="form-control">
+      <h1>Who’s the owner?</h1>
+
+      <input
+        type="text"
+        value={props.data.who || ""}
+        onChange={(e) => props.updateFieldHandler("who", e.target.value)}
+        placeholder="You can write the name here"
+      />
+    </div>
   );
+};
+
+Who.propTypes = {
+  data: PropTypes.object.isRequired,
+  updateFieldHandler: PropTypes.func.isRequired,
 };
 
 export default Who;

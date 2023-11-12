@@ -1,11 +1,24 @@
+import PropTypes from "prop-types";
 import "./found.scss";
 
-const Where = () => {
+const Where = (props) => {
   return (
-    <>
-      <h1>where</h1>
-    </>
+    <div className="form-control">
+      <h1>Where was it?</h1>
+
+      <input
+        type="text"
+        value={props.data.where || ""}
+        onChange={(e) => props.updateFieldHandler("where", e.target.value)}
+        placeholder="Please kindly share the location here"
+      />
+    </div>
   );
+};
+
+Where.propTypes = {
+  data: PropTypes.object.isRequired,
+  updateFieldHandler: PropTypes.func.isRequired,
 };
 
 export default Where;
