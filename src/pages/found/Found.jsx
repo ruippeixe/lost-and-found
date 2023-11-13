@@ -49,7 +49,7 @@ const Found = () => {
       <div className="found">
         <nav>
           <ul>
-            <li>back</li>
+            <Link to="/">&lt;- home</Link>
             <li>found</li>
           </ul>
         </nav>
