@@ -30,8 +30,7 @@ const useFormSteps = (steps, data) => {
     back,
     next,
     isFirstStep: currentStepIndex === 0,
-    isLastStep: currentStepIndex === steps.length - 2,
-    isGreeting: currentStepIndex === steps.length - 1,
+    isLastStep: currentStepIndex === steps.length - 1,
   };
 };
 

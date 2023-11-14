@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import What from "./What";
 import Who from "./Who";
 import Where from "./Where";
@@ -9,18 +10,8 @@ import "./found.scss";
 import "../../hooks/useFormSteps";
 import useFormSteps from "../../hooks/useFormSteps";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-const Found = () => {
-  const [data, setData] = useState({
-    what: "",
-    who: "",
-    where: "",
-    date: "",
-    time: "",
-    email: "",
-  });
-
+const Found = ({ data, setData }) => {
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };
@@ -37,11 +28,18 @@ const Found = () => {
     <Thanks key="thanks" data={data} updateFieldHandler={updateFieldHandler} />,
   ];
 
-  const { currentComponent, back, next, isFirstStep, isLastStep, isGreeting } =
-    useFormSteps(formSteps, data);
+  const {
+    currentComponent,
+    back,
+    next,
+    isFirstStep,
+    isLastStep,
+    currentStepIndex,
+  } = useFormSteps(formSteps, data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
   };
 
   return (
@@ -57,37 +55,32 @@ const Found = () => {
         <form onSubmit={handleSubmit}>
           {currentComponent}
 
-          {!isGreeting && (
-            <div className="actions">
-              {!isFirstStep && (
-                <button type="button" onClick={back}>
-                  back
-                </button>
-              )}
+          <div className="actions">
+            {!isFirstStep && !isLastStep && (
+              <button type="button" onClick={back}>
+                back
+              </button>
+            )}
 
-              {!isLastStep ? (
-                <button type="button" onClick={next}>
-                  next
-                </button>
-              ) : (
-                <button type="submit" onClick={next}>
-                  submit
-                </button>
-              )}
-            </div>
-          )}
-
-          {isGreeting && (
-            <div className="actions">
-              <button>
+            {!isLastStep ? (
+              <button type="button" onClick={next}>
+                {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
+              </button>
+            ) : (
+              <button type="submit">
                 <Link to="/">go back to home page</Link>
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </form>
       </div>
     </>
   );
+};
+
+Found.propTypes = {
+  data: PropTypes.object.isRequired,
+  setData: PropTypes.func.isRequired,
 };
 
 export default Found;
