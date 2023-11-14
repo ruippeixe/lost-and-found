@@ -5,8 +5,8 @@ const useFormSteps = (steps, data) => {
 
   function back() {
     setCurrentStepIndex((i) => {
+      if (currentStepIndex === 2 && data.what === "keys") return i - 2;
       if (i <= 0) return i;
-      else if (data.what === "keys") return i - 2;
 
       return i - 1;
     });
@@ -17,8 +17,8 @@ const useFormSteps = (steps, data) => {
     if (data[stepValue] === "") return;
 
     setCurrentStepIndex((i) => {
+      if (currentStepIndex === 0 && data.what === "keys") return i + 2;
       if (i >= steps.length - 1) return i;
-      else if (data.what === "keys") return i + 2;
 
       return i + 1;
     });
