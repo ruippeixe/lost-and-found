@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+// import { useState } from 'react'
+import useFormSteps from "../../hooks/useFormSteps";
+import { Link } from "react-router-dom";
 import What from "./What";
 import Who from "./Who";
 import Where from "./Where";
@@ -8,10 +11,8 @@ import Email from "./Email";
 import Thanks from "./Thanks";
 import "./found.scss";
 import "../../hooks/useFormSteps";
-import useFormSteps from "../../hooks/useFormSteps";
-import { Link } from "react-router-dom";
 
-const Found = ({ data, setData }) => {
+const Found = ({ data, setData, foundData, setFoundData }) => {
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };
@@ -39,8 +40,11 @@ const Found = ({ data, setData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFoundData((prev) => [...prev, data]);
     setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
   };
+
+  console.log(foundData);
 
   return (
     <>
@@ -81,6 +85,8 @@ const Found = ({ data, setData }) => {
 Found.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
+  foundData: PropTypes.array.isRequired,
+  setFoundData: PropTypes.func.isRequired,
 };
 
 export default Found;
