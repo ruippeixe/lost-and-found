@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import Home from "./pages/Home";
 import Lost from "./pages/Lost";
 import Found from "./pages/found/Found";
@@ -9,7 +9,14 @@ import { Route, Routes } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [data, setData] = useState({
+    what: "",
+    who: "",
+    where: "",
+    date: "",
+    time: "",
+    email: "",
+  });
 
   return (
     <>
@@ -18,7 +25,7 @@ function App() {
           <Col>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/found" element={<Found />} />
+              <Route path="/found" element={<Found data={data} setData={setData} />} />
               <Route path="/lost" element={<Lost />} />
 
               <Route path="*" element={<Error />} />
