@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 // import { useState } from 'react'
 import useFormSteps from "../../hooks/useFormSteps";
 import { Link } from "react-router-dom";
+import NavBar from "../navigation/NavBar";
 import What from "./What";
 import Who from "./Who";
 import Where from "./Where";
@@ -9,10 +10,10 @@ import Date from "./Date";
 import Time from "./Time";
 import Email from "./Email";
 import Thanks from "./Thanks";
-import "./found.scss";
+// import "./found.scss";
 import "../../hooks/useFormSteps";
 
-const Found = ({ data, setData, foundData, setFoundData }) => {
+const Found = ({ data, setData, foundData, setFoundData, cleanFormFields }) => {
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };
@@ -41,21 +42,15 @@ const Found = ({ data, setData, foundData, setFoundData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFoundData((prev) => [...prev, data]);
-    setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
+    cleanFormFields();
   };
 
   console.log(foundData);
 
   return (
     <>
+      <NavBar cleanFormFields={cleanFormFields} />
       <div className="found">
-        <nav>
-          <ul>
-            <Link to="/">&lt;- home</Link>
-            <li>found</li>
-          </ul>
-        </nav>
-
         <form onSubmit={handleSubmit}>
           {currentComponent}
 
@@ -87,6 +82,7 @@ Found.propTypes = {
   setData: PropTypes.func.isRequired,
   foundData: PropTypes.array.isRequired,
   setFoundData: PropTypes.func.isRequired,
+  cleanFormFields: PropTypes.func.isRequired,
 };
 
 export default Found;

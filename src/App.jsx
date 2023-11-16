@@ -19,6 +19,10 @@ function App() {
 
   const [foundData, setFoundData] = useState([]);
 
+  const cleanFormFields = () => {
+    setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
+  };
+
   return (
     <>
       <Container>
@@ -34,6 +38,7 @@ function App() {
                     setData={setData}
                     foundData={foundData}
                     setFoundData={setFoundData}
+                    cleanFormFields={cleanFormFields}
                   />
                 }
               />
