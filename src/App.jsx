@@ -42,7 +42,7 @@ function App() {
                   />
                 }
               />
-              <Route path="/lost" element={<Lost />} />
+              <Route path="/lost" element={<Lost foundData={foundData} />} />
 
               <Route path="*" element={<Error />} />
             </Routes>
