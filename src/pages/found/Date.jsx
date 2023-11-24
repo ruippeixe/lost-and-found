@@ -9,6 +9,7 @@ const Date = (props) => {
         type="date"
         value={props.data.date || ""}
         onChange={(e) => props.updateFieldHandler("date", e.target.value)}
+        required
       />
     </div>
   );

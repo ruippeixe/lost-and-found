@@ -11,6 +11,7 @@ const Where = (props) => {
         value={props.data.where || ""}
         onChange={(e) => props.updateFieldHandler("where", e.target.value)}
         placeholder="Please kindly share the location here"
+        required
       />
     </div>
   );

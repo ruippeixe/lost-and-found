@@ -10,6 +10,7 @@ const Time = (props) => {
         type="time"
         value={props.data.time || ""}
         onChange={(e) => props.updateFieldHandler("time", e.target.value)}
+        required
       />
     </div>
   );

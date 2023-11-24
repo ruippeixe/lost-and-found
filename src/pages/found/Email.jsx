@@ -11,6 +11,7 @@ const Email = (props) => {
         value={props.data.email || ""}
         onChange={(e) => props.updateFieldHandler("email", e.target.value)}
         placeholder="Please submit your email address"
+        required
       />
     </div>
   );

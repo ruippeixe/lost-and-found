@@ -9,6 +9,7 @@ const What = (props) => {
       <select
         value={props.data.what}
         onChange={(e) => props.updateFieldHandler("what", e.target.value)}
+        required
       >
         <option value="" disabled>
           Select the item

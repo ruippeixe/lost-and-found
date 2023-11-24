@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useFormSteps = (steps, data) => {
+const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   function back() {
@@ -13,12 +13,14 @@ const useFormSteps = (steps, data) => {
   }
 
   function next() {
-    const stepValue = steps[currentStepIndex].key;
-    if (data[stepValue] === "") return;
-
     setCurrentStepIndex((i) => {
       if (currentStepIndex === 0 && data.what === "keys") return i + 2;
       if (i >= steps.length - 1) return i;
+
+      if (currentStepIndex === steps.length - 2) {
+        setFoundData((prev) => [...prev, data]);
+        cleanFormFields();
+      }
 
       return i + 1;
     });

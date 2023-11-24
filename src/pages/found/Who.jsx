@@ -11,6 +11,7 @@ const Who = (props) => {
         value={props.data.who || ""}
         onChange={(e) => props.updateFieldHandler("who", e.target.value)}
         placeholder="You can write the name here"
+        required
       />
     </div>
   );

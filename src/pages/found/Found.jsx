@@ -13,7 +13,7 @@ import Thanks from "./Thanks";
 // import "./found.scss";
 import "../../hooks/useFormSteps";
 
-const Found = ({ data, setData, foundData, setFoundData, cleanFormFields }) => {
+const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };
@@ -37,15 +37,12 @@ const Found = ({ data, setData, foundData, setFoundData, cleanFormFields }) => {
     isFirstStep,
     isLastStep,
     currentStepIndex,
-  } = useFormSteps(formSteps, data);
+  } = useFormSteps(formSteps, data, setFoundData, cleanFormFields);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFoundData((prev) => [...prev, data]);
-    cleanFormFields();
+    next();
   };
-
-  console.log(foundData);
 
   return (
     <>
@@ -62,11 +59,11 @@ const Found = ({ data, setData, foundData, setFoundData, cleanFormFields }) => {
             )}
 
             {!isLastStep ? (
-              <button type="button" onClick={next}>
+              <button type="submit">
                 {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
               </button>
             ) : (
-              <button type="submit">
+              <button type="button">
                 <Link to="/">go back to home page</Link>
               </button>
             )}
