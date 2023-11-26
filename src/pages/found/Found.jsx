@@ -10,7 +10,7 @@ import Date from "./Date";
 import Time from "./Time";
 import Email from "./Email";
 import Thanks from "./Thanks";
-// import "./found.scss";
+import "./found.scss";
 import "../../hooks/useFormSteps";
 
 const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
@@ -49,21 +49,24 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
       <NavBar cleanFormFields={cleanFormFields} />
       <div className="found">
         <form onSubmit={handleSubmit}>
-          {currentComponent}
+
+          <div className="form-element">
+            {currentComponent}
+          </div>
 
           <div className="actions">
             {!isFirstStep && !isLastStep && (
-              <button type="button" onClick={back}>
+              <button type="button" onClick={back} className="btn">
                 back
               </button>
             )}
 
             {!isLastStep ? (
-              <button type="submit">
+              <button type="submit" className="btn inverse">
                 {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
               </button>
             ) : (
-              <button type="button">
+              <button type="button" className="btn inverse">
                 <Link to="/">go back to home page</Link>
               </button>
             )}

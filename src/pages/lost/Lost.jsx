@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import NavBar from "./navigation/NavBar";
+import NavBar from "../navigation/NavBar";
 
 const Lost = ({ foundData }) => {
   const [query, setQuery] = useState("");

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import 'normalize.css';
 import "bootstrap/dist/css/bootstrap-grid.min.css";
-import './styles/index.css'
+import './index.css'
 
 import { BrowserRouter } from 'react-router-dom'
 

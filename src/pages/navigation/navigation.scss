@@ -1,6 +1,18 @@
 .navigation {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
   ul {
     display: flex;
     justify-content: space-between;
+
+    li {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    img {
+      max-width: 24px;
+    }
   }
 }

@@ -4,7 +4,7 @@ import "./found.scss";
 const Email = (props) => {
   return (
     <div className="form-control">
-      <h1>How to reach you?</h1>
+      <h1 className="title">How to reach you?</h1>
 
       <input
         type="email"

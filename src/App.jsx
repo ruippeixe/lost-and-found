@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import Home from "./pages/Home";
-import Lost from "./pages/Lost";
+import Home from "./pages/home/Home";
+import Lost from "./pages/lost/Lost";
 import Found from "./pages/found/Found";
-import Error from "./pages/Error";
-// import "./App.css";
+import Error from "./pages/error/Error";
 
 function App() {
   const [data, setData] = useState({

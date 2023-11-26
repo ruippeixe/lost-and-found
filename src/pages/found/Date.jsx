@@ -4,7 +4,8 @@ import "./found.scss";
 const Date = (props) => {
   return (
     <div className="form-control">
-      <h1>On what day?</h1>
+      <h1 className="title">On what day?</h1>
+
       <input
         type="date"
         value={props.data.date || ""}

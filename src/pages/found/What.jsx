@@ -4,7 +4,7 @@ import "./found.scss";
 const What = (props) => {
   return (
     <div className="form-control">
-      <h1>What did you find?</h1>
+      <h1 className="title">What did you find?</h1>
 
       <select
         value={props.data.what}

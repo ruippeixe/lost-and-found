@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./navigation.scss";
-
-import PropTypes from "prop-types";
+import leftArrow from '../../imgs/leftArrow.svg';
 
 const NavBar = ({ cleanFormFields }) => {
   const location = useLocation();
@@ -28,7 +28,7 @@ const NavBar = ({ cleanFormFields }) => {
       <nav>
         <ul>
           <Link to="/" onClick={handleCleanFormFields}>
-            &lt;- home
+            <img src={leftArrow} alt="go back to home page" />
           </Link>
           <li>{getPageNameFromPath()}</li>
         </ul>

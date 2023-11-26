@@ -4,7 +4,7 @@ import "./found.scss";
 const Where = (props) => {
   return (
     <div className="form-control">
-      <h1>Where was it?</h1>
+      <h1 className="title">Where was it?</h1>
 
       <input
         type="text"

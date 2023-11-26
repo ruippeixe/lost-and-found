@@ -4,7 +4,7 @@ import "./found.scss";
 const Time = (props) => {
   return (
     <div className="form-control">
-      <h1>And what hour?</h1>
+      <h1 className="title">And what hour?</h1>
 
       <input
         type="time"

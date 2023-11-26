@@ -4,7 +4,7 @@ import "./found.scss";
 const Who = (props) => {
   return (
     <div className="form-control">
-      <h1>Who’s the owner?</h1>
+      <h1 className="title">Who’s the owner?</h1>
 
       <input
         type="text"
