@@ -3,7 +3,7 @@ import "./found.scss";
 
 const Time = (props) => {
   return (
-    <div className="form-control">
+    <>
       <h1 className="title">And what hour?</h1>
 
       <input
@@ -12,7 +12,7 @@ const Time = (props) => {
         onChange={(e) => props.updateFieldHandler("time", e.target.value)}
         required
       />
-    </div>
+    </>
   );
 };
 
