@@ -1,0 +1,64 @@
+.lost {
+  height: 100vh;
+
+  .form {
+    height: calc(100% - 107.59px);
+
+    .form-element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 60%;
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 800;
+      }
+
+      .sub-title {
+        font-size: 2rem;
+        font-weight: 700;
+
+        .mt-4 {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40%;
+    }
+  }
+
+  .query-search {
+    height: calc(100% - 107.59px);
+
+    .query-input {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 60%;
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 800;
+      }
+    }
+
+    .query-result {
+      display: flex;
+      justify-content: center;
+      height: 40%;
+
+      .title {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
