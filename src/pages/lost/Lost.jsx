@@ -93,7 +93,7 @@ const Lost = ({ foundData }) => {
                     ))}
                 </ul>
               ) : (
-                <p className="title">Sorry, we couldn&apos;t find it...</p>
+                query && <p className="title not-found">Sorry, we couldn&apos;t find it...</p>
               )}
             </ul>
           </div>

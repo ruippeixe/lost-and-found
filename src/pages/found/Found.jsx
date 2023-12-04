@@ -63,9 +63,11 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
               {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
             </button>
           ) : (
-            <button type="button" className="btn inverse">
-              <Link to="/">go back to home page</Link>
-            </button>
+            <Link to="/">
+              <button type="button" className="btn inverse">
+                go back to home page
+              </button>
+            </Link>
           )}
         </div>
       </form>

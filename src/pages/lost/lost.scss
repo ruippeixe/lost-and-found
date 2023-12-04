@@ -58,6 +58,10 @@
       .title {
         font-size: 2rem;
         font-weight: 700;
+
+        &.not-found {
+          color: #808080;
+        }
       }
     }
   }
