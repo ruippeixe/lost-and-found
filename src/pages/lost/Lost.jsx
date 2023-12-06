@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import NavBar from "../navigation/NavBar";
+import Results from "./Results";
+import Options from "./Options";
 import "./lost.scss";
 
 const Lost = ({ foundData }) => {
@@ -38,66 +39,21 @@ const Lost = ({ foundData }) => {
       <NavBar />
 
       {isFirstStep && (
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-element">
-            <h1 className="title">What did you lose?</h1>
-            <select
-              value={selectedItem}
-              onChange={(e) => updateFieldHandler("what", e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Select the item
-              </option>
-              <option value="passport">Passport</option>
-              <option value="keys">Keys</option>
-            </select>
-          </div>
-
-          <div className="actions">
-            {isFirstStep ? (
-              <button type="submit" className="btn inverse">
-                next
-              </button>
-            ) : null}
-          </div>
-        </form>
+        <Options
+          updateFieldHandler={updateFieldHandler}
+          selectedItem={selectedItem}
+          isFirstStep={isFirstStep}
+          handleSubmit={handleSubmit}
+        />
       )}
 
       {!isFirstStep && (
-        <div className="query-search">
-          <div className="query-input">
-            <h1 className="title">
-              {selectedItem === "passport" && "What's your name?"}
-              {selectedItem === "keys" && "In what city did you lose them?"}
-            </h1>
-            <input type="text" onChange={(e) => setQuery(e.target.value)} />
-          </div>
-
-          <div className="query-result">
-            <ul>
-              {filteredItems.length > 0 ? (
-                <ul>
-                  {selectedItem === "passport" &&
-                    filteredItems.map((value) => (
-                      <p key={uuidv4()} className="title">
-                        {query ? value.who : ""}
-                      </p>
-                    ))}
-
-                  {selectedItem === "keys" &&
-                    filteredItems.map((value) => (
-                      <p key={uuidv4()} className="title">
-                        {query ? value.where : ""}
-                      </p>
-                    ))}
-                </ul>
-              ) : (
-                query && <p className="title not-found">Sorry, we couldn&apos;t find it...</p>
-              )}
-            </ul>
-          </div>
-        </div>
+        <Results
+          selectedItem={selectedItem}
+          setQuery={setQuery}
+          filteredItems={filteredItems}
+          query={query}
+        />
       )}
     </div>
   );
