@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 
 const Results = ({
   updateFieldHandler,
@@ -34,6 +34,13 @@ const Results = ({
       </form>
     </>
   );
+};
+
+Results.propTypes = {
+  updateFieldHandler: PropTypes.func.isRequired,
+  selectedItem: PropTypes.string.isRequired,
+  isFirstStep: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Results;

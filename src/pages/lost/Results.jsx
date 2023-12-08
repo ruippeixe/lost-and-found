@@ -1,7 +1,15 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
+import Dropdown from "./Dropdown";
 
 const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
+  const [dropdown, setDropdown] = useState(null);
+
+  const toggleDropdown = (index) => {
+    setDropdown((prevDropdown) => (prevDropdown === index ? null : index));
+  };
+
   return (
     <>
       <div className="query-search">
@@ -15,27 +23,29 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
 
         <div className="query-result">
           <ul>
-            {filteredItems.length > 0 ? (
-              <ul>
-                {selectedItem === "passport" &&
-                  filteredItems.map((value) => (
-                    <p key={uuidv4()} className="title">
-                      {query ? value.who : ""}
-                    </p>
-                  ))}
-
-                {selectedItem === "keys" &&
-                  filteredItems.map((value) => (
-                    <p key={uuidv4()} className="title">
-                      {query ? value.where : ""}
-                    </p>
-                  ))}
-              </ul>
+            {filteredItems.length > 0 && query ? (
+              <li>
+                {filteredItems.map((value, index) => (
+                  <div key={uuidv4()} className="title">
+                    {query
+                      ? selectedItem === "passport"
+                        ? value.who
+                        : value.where
+                      : ""}
+                    <Dropdown
+                      value={value}
+                      index={index}
+                      toggleDropdown={toggleDropdown}
+                      dropdown={dropdown}
+                    />
+                  </div>
+                ))}
+              </li>
             ) : (
               query && (
-                <p className="title not-found">
+                <li className="title not-found">
                   Sorry, we couldn&apos;t find any match...
-                </p>
+                </li>
               )
             )}
           </ul>

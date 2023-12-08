@@ -36,6 +36,7 @@
 
   .query-search {
     height: calc(100% - 107.59px);
+    padding-bottom: 40px;
 
     .query-input {
       display: flex;
@@ -54,6 +55,8 @@
       display: flex;
       justify-content: center;
       height: 40%;
+
+      overflow-y: auto;
 
       .title {
         font-size: 2rem;
