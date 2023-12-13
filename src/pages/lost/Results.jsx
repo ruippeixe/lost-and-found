@@ -18,7 +18,7 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
             {selectedItem === "passport" && "What's your name?"}
             {selectedItem === "keys" && "In what city?"}
           </h1>
-          <input type="text" onChange={(e) => setQuery(e.target.value)} />
+          <input className="input-box" type="text" onChange={(e) => setQuery(e.target.value)} />
         </div>
 
         <div className="query-result">

@@ -6,7 +6,7 @@ const Date = (props) => {
     <>
       <h1 className="title">On what day?</h1>
 
-      <input
+      <input className="input-box"
         type="date"
         value={props.data.date || ""}
         onChange={(e) => props.updateFieldHandler("date", e.target.value)}

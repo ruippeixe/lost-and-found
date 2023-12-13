@@ -6,7 +6,7 @@ const Where = (props) => {
     <>
       <h1 className="title">Where was it?</h1>
 
-      <input
+      <input className="input-box"
         type="text"
         value={props.data.where || ""}
         onChange={(e) => props.updateFieldHandler("where", e.target.value)}

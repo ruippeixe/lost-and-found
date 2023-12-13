@@ -6,7 +6,7 @@ const Who = (props) => {
     <>
       <h1 className="title">Who’s the owner?</h1>
 
-      <input
+      <input className="input-box"
         type="text"
         value={props.data.who || ""}
         onChange={(e) => props.updateFieldHandler("who", e.target.value)}

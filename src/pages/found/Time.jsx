@@ -6,7 +6,7 @@ const Time = (props) => {
     <>
       <h1 className="title">And what hour?</h1>
 
-      <input
+      <input className="input-box"
         type="time"
         value={props.data.time || ""}
         onChange={(e) => props.updateFieldHandler("time", e.target.value)}

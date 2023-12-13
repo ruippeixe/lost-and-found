@@ -6,7 +6,7 @@ const Email = (props) => {
     <>
       <h1 className="title">How to reach you?</h1>
 
-      <input
+      <input className="input-box"
         type="email"
         value={props.data.email || ""}
         onChange={(e) => props.updateFieldHandler("email", e.target.value)}

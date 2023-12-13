@@ -7,6 +7,7 @@ const What = (props) => {
       <h1 className="title">What did you find?</h1>
 
       <select
+        className="select-box"
         value={props.data.what}
         onChange={(e) => props.updateFieldHandler("what", e.target.value)}
         required

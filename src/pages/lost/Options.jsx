@@ -11,7 +11,7 @@ const Results = ({
       <form onSubmit={handleSubmit} className="form">
         <div className="form-element">
           <h1 className="title">What did you lose?</h1>
-          <select
+          <select className="select-box"
             value={selectedItem}
             onChange={(e) => updateFieldHandler("what", e.target.value)}
             required
