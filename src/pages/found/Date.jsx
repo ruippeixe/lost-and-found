@@ -3,7 +3,7 @@ import "./found.scss";
 
 const Date = (props) => {
   return (
-    <>
+    <div>
       <h1 className="title">On what day?</h1>
 
       <input className="input-box"
@@ -12,7 +12,7 @@ const Date = (props) => {
         onChange={(e) => props.updateFieldHandler("date", e.target.value)}
         required
       />
-    </>
+    </div>
   );
 };
 

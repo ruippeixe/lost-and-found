@@ -4,10 +4,6 @@
   .form {
     height: calc(100% - 107.59px);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     .form-element {
       display: flex;
       flex-direction: column;
@@ -18,6 +14,7 @@
       .title {
         font-size: 4.5rem;
         font-weight: 800;
+        margin-bottom: 24px;
       }
 
       .sub-title {
@@ -34,6 +31,7 @@
         color: black;
         padding: 8px 16px;
         background-color: inherit;
+        height: 48px;
       }
     }
 
@@ -41,27 +39,25 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 40%;
     }
   }
 
   .query-search {
     height: calc(100% - 107.59px);
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40px;
 
     .query-input {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 60%;
+      min-height: 60%;
 
       .title {
         font-size: 4.5rem;
         font-weight: 800;
+        margin-bottom: 24px;
       }
 
       .input-box {
@@ -73,15 +69,28 @@
         color: black;
         padding: 8px 16px;
         background-color: inherit;
+        height: 48px;
       }
     }
 
     .query-result {
       display: flex;
+      width: 100%;
       justify-content: center;
-      height: 40%;
+      padding-bottom: 40px;
 
-      overflow-y: auto;
+      ul {
+        width: 100%;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+
+          &.not-found {
+            justify-content: center;
+          }
+        }
+      }
 
       .title {
         font-size: 2rem;

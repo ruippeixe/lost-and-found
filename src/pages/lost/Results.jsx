@@ -18,37 +18,45 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
             {selectedItem === "passport" && "What's your name?"}
             {selectedItem === "keys" && "In what city?"}
           </h1>
-          <input className="input-box" type="text" onChange={(e) => setQuery(e.target.value)} />
+          <input
+            className="input-box"
+            type="text"
+            placeholder="You can write the name here"
+            onChange={(e) => setQuery(e.target.value)}
+          />
         </div>
 
         <div className="query-result">
-          <ul>
-            {filteredItems.length > 0 && query ? (
-              <li>
-                {filteredItems.map((value, index) => (
-                  <div key={uuidv4()} className="title">
+          {filteredItems.length > 0 && query ? (
+            <ul>
+              {filteredItems.map((value, index) => (
+                <li key={uuidv4()} className="title">
+                  <div>
                     {query
                       ? selectedItem === "passport"
                         ? value.who
                         : value.where
                       : ""}
-                    <Dropdown
-                      value={value}
-                      index={index}
-                      toggleDropdown={toggleDropdown}
-                      dropdown={dropdown}
-                    />
                   </div>
-                ))}
-              </li>
-            ) : (
-              query && (
+
+                  <Dropdown
+                    value={value}
+                    index={index}
+                    toggleDropdown={toggleDropdown}
+                    dropdown={dropdown}
+                  />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            query && (
+              <ul>
                 <li className="title not-found">
                   Sorry, we couldn&apos;t find any match...
                 </li>
-              )
-            )}
-          </ul>
+              </ul>
+            )
+          )}
         </div>
       </div>
     </>

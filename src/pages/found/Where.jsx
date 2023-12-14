@@ -3,7 +3,7 @@ import "./found.scss";
 
 const Where = (props) => {
   return (
-    <>
+    <div>
       <h1 className="title">Where was it?</h1>
 
       <input className="input-box"
@@ -13,7 +13,7 @@ const Where = (props) => {
         placeholder="Please kindly share the location here"
         required
       />
-    </>
+    </div>
   );
 };
 

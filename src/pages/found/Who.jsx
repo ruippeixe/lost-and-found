@@ -3,7 +3,7 @@ import "./found.scss";
 
 const Who = (props) => {
   return (
-    <>
+    <div>
       <h1 className="title">Who’s the owner?</h1>
 
       <input className="input-box"
@@ -13,7 +13,7 @@ const Who = (props) => {
         placeholder="You can write the name here"
         required
       />
-    </>
+    </div>
   );
 };
 

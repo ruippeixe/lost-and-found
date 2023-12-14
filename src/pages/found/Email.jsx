@@ -3,7 +3,7 @@ import "./found.scss";
 
 const Email = (props) => {
   return (
-    <>
+    <div>
       <h1 className="title">How to reach you?</h1>
 
       <input className="input-box"
@@ -13,7 +13,7 @@ const Email = (props) => {
         placeholder="Please submit your email address"
         required
       />
-    </>
+    </div>
   );
 };
 

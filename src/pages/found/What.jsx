@@ -3,7 +3,7 @@ import "./found.scss";
 
 const What = (props) => {
   return (
-    <>
+    <div>
       <h1 className="title">What did you find?</h1>
 
       <select
@@ -18,7 +18,7 @@ const What = (props) => {
         <option value="passport">Passport</option>
         <option value="keys">Keys</option>
       </select>
-    </>
+    </div>
   );
 };
 

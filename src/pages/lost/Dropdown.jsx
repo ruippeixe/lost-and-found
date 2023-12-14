@@ -6,18 +6,14 @@ const Dropdown = ({ value, index, toggleDropdown, dropdown }) => {
       <button onClick={() => toggleDropdown(index)}>see more</button>
 
       {dropdown === index && (
-        <ul>
-          <li>
-            <h2>location, date & time</h2>
-            <div>
-              {value.where}, {value.date}, {value.time}
-            </div>
-          </li>
-          <li>
-            <h2>contact</h2>
-            <div>{value.email}</div>
-          </li>
-        </ul>
+        <div>
+          <h2>location, date & time</h2>
+          <div>
+            {value.where}, {value.date}, {value.time}
+          </div>
+          <h2>contact</h2>
+          <div>{value.email}</div>
+        </div>
       )}
     </>
   );
