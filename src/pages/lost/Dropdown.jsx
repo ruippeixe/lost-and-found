@@ -1,18 +1,16 @@
 import PropTypes from "prop-types";
 
-const Dropdown = ({ value, index, toggleDropdown, dropdown }) => {
+const Dropdown = ({ value, index, dropdown }) => {
   return (
     <>
-      <button onClick={() => toggleDropdown(index)}>see more</button>
-
       {dropdown === index && (
-        <div>
-          <h2>location, date & time</h2>
-          <div>
+        <div className="elem-content">
+          <h3 className="subtitle">location, date & time</h3>
+          <p>
             {value.where}, {value.date}, {value.time}
-          </div>
-          <h2>contact</h2>
-          <div>{value.email}</div>
+          </p>
+          <h3 className="subtitle">contact the finder</h3>
+          <p>{value.email}</p>
         </div>
       )}
     </>

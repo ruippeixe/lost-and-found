@@ -30,13 +30,22 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
           {filteredItems.length > 0 && query ? (
             <ul>
               {filteredItems.map((value, index) => (
-                <li key={uuidv4()} className="title">
-                  <div>
-                    {query
-                      ? selectedItem === "passport"
-                        ? value.who
-                        : value.where
-                      : ""}
+                <li key={uuidv4()} className="dropdown">
+                  <div className="elem">
+                    <h2>
+                      {query
+                        ? selectedItem === "passport"
+                          ? value.who
+                          : value.where
+                        : ""}
+                    </h2>
+
+                    <button
+                      className="btn dropdown"
+                      onClick={() => toggleDropdown(index)}
+                    >
+                      see more
+                    </button>
                   </div>
 
                   <Dropdown
@@ -51,7 +60,7 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
           ) : (
             query && (
               <ul>
-                <li className="title not-found">
+                <li className="dropdown not-found">
                   Sorry, we couldn&apos;t find any match...
                 </li>
               </ul>

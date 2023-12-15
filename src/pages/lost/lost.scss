@@ -83,21 +83,45 @@
         width: 100%;
 
         li {
-          display: flex;
-          justify-content: space-between;
+          &.dropdown {
+            font-size: 2rem;
+            font-weight: 600;
+            border-bottom: 1px solid lightgray;
+            padding: 8px 0;
 
-          &.not-found {
-            justify-content: center;
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &.not-found {
+              font-size: 2rem;
+              font-weight: 700;
+              text-align: center;
+              color: gray;
+            }
+
+            .elem {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+
+            .elem-content {
+              padding: 8px;
+
+              .subtitle {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+              }
+
+              p {
+                font-size: 1rem;
+                margin-bottom: 8px;
+              }
+            }
           }
-        }
-      }
-
-      .title {
-        font-size: 2rem;
-        font-weight: 700;
-
-        &.not-found {
-          color: #808080;
         }
       }
     }
