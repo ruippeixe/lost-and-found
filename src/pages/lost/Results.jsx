@@ -44,7 +44,7 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
                       className="btn dropdown"
                       onClick={() => toggleDropdown(index)}
                     >
-                      see more
+                      see details
                     </button>
                   </div>
 

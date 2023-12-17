@@ -10,6 +10,7 @@ import Date from "./Date";
 import Time from "./Time";
 import Email from "./Email";
 import Thanks from "./Thanks";
+import Steps from "./Steps";
 import "./found.scss";
 import "../../hooks/useFormSteps";
 
@@ -46,6 +47,8 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
 
   return (
     <div className="found">
+      <Steps currentStepIndex={currentStepIndex} selectedWhat={data.what} />
+
       <NavBar cleanFormFields={cleanFormFields} />
 
       <form onSubmit={handleSubmit} className="form">
