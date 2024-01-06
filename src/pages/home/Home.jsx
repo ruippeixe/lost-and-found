@@ -3,6 +3,8 @@ import "./home.scss";
 import "../styles/global.scss"
 
 const Home = () => {
+  document.title = 'Lost & Found';
+
   return (
     <div className="home">
       <h1 className="title">Lost or Found something?</h1>

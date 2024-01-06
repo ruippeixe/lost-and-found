@@ -15,6 +15,8 @@ import "./found.scss";
 import "../../hooks/useFormSteps";
 
 const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
+  document.title = 'L&F - Found';
+  
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };

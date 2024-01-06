@@ -6,6 +6,8 @@ import Options from "./Options";
 import "./lost.scss";
 
 const Lost = ({ foundData }) => {
+  document.title = 'L&F - Lost';
+
   const [isFirstStep, setIsFirstStep] = useState(true);
   const [selectedItem, setSelectedItem] = useState("");
   const [query, setQuery] = useState("");

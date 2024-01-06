@@ -3,6 +3,8 @@ import "./error.scss";
 import "../styles/global.scss";
 
 const Error = () => {
+  document.title = 'L&F - Oops...';
+  
   return (
     <div className="error">
       <div className="title">Sorry, the page was not found.</div>
