@@ -17,7 +17,7 @@ To run this project locally, follow these steps:
 4. Start the development server: `npm run dev`
 5. Open it in your preferred web browser.
 
-- **Or you can find it live at** [Lost & Found](https://ruippeixe.github.io/lost-and-found/)
+- **Or you can find it live at** [Lost & Found](https://lost-and-found.ruippeixe.com/)
 
 ## Overview
 
