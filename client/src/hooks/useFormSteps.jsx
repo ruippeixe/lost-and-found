@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Axios from "axios";
+import { API_URL } from "../../config.js";
 
 const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -19,6 +21,23 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
 
       if (currentStepIndex === steps.length - 2) {
         setFoundData((prev) => [...prev, data]);
+
+        const addItem = async () => {
+          try {
+            await Axios.post(`${API_URL}/api/item`, {
+              what: data.what,
+              who: data.who,
+              where: data.where,
+              date: data.date,
+              time: data.time,
+              email: data.email,
+            });
+          } catch (error) {
+            console.error("Error adding item:", error);
+          }
+        };
+        addItem();
+
         cleanFormFields();
       }
 
