@@ -27,7 +27,7 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
             await Axios.post(`${API_URL}/api/item`, {
               what: data.what,
               who: data.who,
-              where: data.where,
+              place: data.place,
               date: data.date,
               time: data.time,
               email: data.email,

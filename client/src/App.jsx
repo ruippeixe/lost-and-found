@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Home from "./pages/home/Home";
 import Lost from "./pages/lost/Lost";
 import Found from "./pages/found/Found";
 import Error from "./pages/error/Error";
+import Axios from "axios";
+import { API_URL } from "../config.js";
 
 function App() {
   const [data, setData] = useState({
     what: "",
     who: "",
-    where: "",
+    place: "",
     date: "",
     time: "",
     email: "",
@@ -21,6 +23,19 @@ function App() {
   const cleanFormFields = () => {
     setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get(`${API_URL}/api/item`);
+        setFoundData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>

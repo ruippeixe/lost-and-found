@@ -36,7 +36,7 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
                       {query
                         ? selectedItem === "passport"
                           ? value.who
-                          : value.where
+                          : value.place
                         : ""}
                     </h2>
 

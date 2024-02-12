@@ -7,7 +7,7 @@ const Dropdown = ({ value, index, dropdown }) => {
         <div className="elem-content">
           <h3 className="subtitle">location, date & time</h3>
           <p>
-            {value.where}, {value.date}, {value.time}
+            {value.place}, {value.date}, {value.time}
           </p>
           <h3 className="subtitle">contact the finder</h3>
           <p>{value.email}</p>

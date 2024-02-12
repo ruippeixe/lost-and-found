@@ -6,7 +6,7 @@ import Options from "./Options";
 import "./lost.scss";
 
 const Lost = ({ foundData }) => {
-  document.title = 'L&F - Lost';
+  document.title = "L&F - Lost";
 
   const [isFirstStep, setIsFirstStep] = useState(true);
   const [selectedItem, setSelectedItem] = useState("");
@@ -17,11 +17,13 @@ const Lost = ({ foundData }) => {
 
     if (selectedItem === "passport")
       return foundData.filter(
-        (item) => item.who.includes(query) && item.what === "passport"
+        (item) =>
+          item.who && item.who.includes(query) && item.what === "passport"
       );
     else
       return foundData.filter(
-        (item) => item.where.includes(query) && item.what === "keys"
+        (item) =>
+          item.place && item.place.includes(query) && item.what === "keys"
       );
   };
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import NavBar from "../navigation/NavBar";
 import What from "./What";
 import Who from "./Who";
-import Where from "./Where";
+import Place from "./Place";
 import Date from "./Date";
 import Time from "./Time";
 import Email from "./Email";
@@ -26,7 +26,7 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
   const formSteps = [
     <What key="what" data={data} updateFieldHandler={updateFieldHandler} />,
     <Who key="who" data={data} updateFieldHandler={updateFieldHandler} />,
-    <Where key="where" data={data} updateFieldHandler={updateFieldHandler} />,
+    <Place key="place" data={data} updateFieldHandler={updateFieldHandler} />,
     <Date key="date" data={data} updateFieldHandler={updateFieldHandler} />,
     <Time key="time" data={data} updateFieldHandler={updateFieldHandler} />,
     <Email key="email" data={data} updateFieldHandler={updateFieldHandler} />,
