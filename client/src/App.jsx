@@ -30,7 +30,7 @@ function App() {
         const response = await Axios.get(`${API_URL}/api/item`);
         setFoundData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching items:", error);
       }
     };
 
