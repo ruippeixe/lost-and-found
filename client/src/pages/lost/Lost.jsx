@@ -15,16 +15,23 @@ const Lost = ({ foundData }) => {
   const getFilteredItems = (query, foundData) => {
     if (!query) return foundData;
 
-    if (selectedItem === "passport")
+    const lowercaseQuery = query.toLowerCase();
+
+    if (selectedItem === "passport") {
       return foundData.filter(
         (item) =>
-          item.who && item.who.includes(query) && item.what === "passport"
+          item.who &&
+          item.who.toLowerCase().includes(lowercaseQuery) &&
+          item.what === "passport"
       );
-    else
+    } else {
       return foundData.filter(
         (item) =>
-          item.place && item.place.includes(query) && item.what === "keys"
+          item.place &&
+          item.place.toLowerCase().includes(lowercaseQuery) &&
+          item.what === "keys"
       );
+    }
   };
 
   const filteredItems = getFilteredItems(query, foundData);
