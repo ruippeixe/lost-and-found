@@ -2,13 +2,28 @@ CREATE DATABASE IF NOT EXISTS lostAndFound;
 
 USE lostAndFound;
 
-CREATE TABLE `items` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `what` varchar(255) NOT NULL,
-  `who` varchar(255) DEFAULT NULL,
-  `place` varchar(255) NOT NULL,
-  `date` varchar(10) NOT NULL,
-  `time` time NOT NULL,
-  `email` varchar(255) NOT NULL,
+CREATE TABLE `users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `items` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `what` VARCHAR(255) NOT NULL,
+  `who` VARCHAR(255) NULL DEFAULT NULL,
+  `place` VARCHAR(255) NOT NULL,
+  `date` VARCHAR(10) NOT NULL,
+  `time` TIME NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `uid` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `uid_idx` (`uid` ASC) VISIBLE,
+  CONSTRAINT `uid`
+    FOREIGN KEY (`uid`)
+    REFERENCES `users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
