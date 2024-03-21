@@ -8,6 +8,7 @@ import Error from "./pages/error/Error";
 // import Axios from "axios";
 // import { API_URL } from "../config.js";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   const [data, setData] = useState({
@@ -62,6 +63,7 @@ function App() {
               <Route path="*" element={<Error />} />
 
               <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </Col>
         </Row>

@@ -1,14 +1,13 @@
-import { useState } from "react";
 import Axios from "axios";
-import { API_URL } from "../../config.js";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
 
-const Register = () => {
+const Login = () => {
   document.title = "Lost & Found";
 
   const [inputs, setInputs] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
@@ -24,8 +23,9 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await Axios.post(`${API_URL}/api/auth/register`, inputs);
-      navigate("/login");
+      const res = await Axios.post(`${API_URL}/api/auth/login`, inputs);
+      console.log(res);
+      navigate("/");
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -42,22 +42,18 @@ const Register = () => {
       />
       <input
         required
-        type="email"
-        placeholder="email"
-        name="email"
-        onChange={handleChange}
-      />
-      <input
-        required
         type="password"
         placeholder="password"
         name="password"
         onChange={handleChange}
       />
-      <button onClick={handleSubmit}>Register</button>
+      <button onClick={handleSubmit}>Login</button>
       {error && <p>{error}</p>}
+      <span>
+        Don&apos;t you have an account? <Link to="/register">Register</Link>
+      </span>
     </form>
   );
 };
 
-export default Register;
+export default Login;
