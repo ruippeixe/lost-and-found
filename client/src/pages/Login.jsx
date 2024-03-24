@@ -23,7 +23,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await Axios.post(`${API_URL}/api/auth/login`, inputs);
+      const res = await Axios.post(`${API_URL}/api/auth/login`, inputs, {
+        withCredentials: true,
+      });
       console.log(res);
       navigate("/");
     } catch (error) {
