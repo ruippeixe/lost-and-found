@@ -1,7 +1,8 @@
-import Axios from "axios";
-import { useState } from "react";
+// import Axios from "axios";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { API_URL } from "../../config";
+// import { API_URL } from "../../config";
+import { AuthContext } from "../context/authContext";
 
 const Login = () => {
   document.title = "Lost & Found";
@@ -15,18 +16,19 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { login } = useContext(AuthContext);
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await Axios.post(`${API_URL}/api/auth/login`, inputs, {
-        withCredentials: true,
-      });
-      console.log(res);
+      // const res = await Axios.post(`${API_URL}/api/auth/login`, inputs, {
+      //   withCredentials: true,
+      // });
+      await login(inputs);
       navigate("/");
     } catch (error) {
       setError(error.response.data.message);

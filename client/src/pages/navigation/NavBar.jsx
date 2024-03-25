@@ -2,7 +2,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./navigation.scss";
-import leftArrow from '../../imgs/leftArrow.svg';
+import leftArrow from "../../imgs/leftArrow.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 
 const NavBar = ({ cleanFormFields }) => {
   const location = useLocation();
@@ -23,12 +25,16 @@ const NavBar = ({ cleanFormFields }) => {
     return;
   };
 
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <div className="navigation">
       <nav>
         <ul>
           <Link to="/" onClick={handleCleanFormFields}>
             <img src={leftArrow} alt="go back to home page" />
+            {/* retrieving user from local storage */}
+            <span>{currentUser?.username}</span>
           </Link>
           <li>{getPageNameFromPath()}</li>
         </ul>
