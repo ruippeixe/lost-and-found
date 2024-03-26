@@ -25,9 +25,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const res = await Axios.post(`${API_URL}/api/auth/login`, inputs, {
-      //   withCredentials: true,
-      // });
       await login(inputs);
       navigate("/");
     } catch (error) {

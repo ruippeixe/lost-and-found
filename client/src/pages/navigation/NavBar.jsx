@@ -25,7 +25,7 @@ const NavBar = ({ cleanFormFields }) => {
     return;
   };
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
   return (
     <div className="navigation">
@@ -33,9 +33,17 @@ const NavBar = ({ cleanFormFields }) => {
         <ul>
           <Link to="/" onClick={handleCleanFormFields}>
             <img src={leftArrow} alt="go back to home page" />
-            {/* retrieving user from local storage */}
-            <span>{currentUser?.username}</span>
           </Link>
+          {/* retrieving user from local storage */}
+          <span>{currentUser?.username}</span>
+          {/* logout and delete cookies and local storage */}
+          <span>
+            {currentUser ? (
+              <span onClick={logout}>Logout</span>
+            ) : (
+              <Link to="/login">Login</Link>
+            )}
+          </span>
           <li>{getPageNameFromPath()}</li>
         </ul>
       </nav>

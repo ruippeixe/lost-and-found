@@ -62,7 +62,7 @@ export const login = async (req, res) => {
 
     // Excludes password, sets token cookie, and sends user data
     const { password: userPassword, ...other } = userData[0];
-    
+
     res
       .cookie("access_token", token, {
         httpOnly: true,
@@ -75,4 +75,14 @@ export const login = async (req, res) => {
     console.error("Error logging in user:", error);
     return res.status(500).json({ message: "Something went wrong." });
   }
+};
+
+export const logout = (req, res) => {
+  res
+    .clearCookie("access_token", {
+      sameSite: "none",
+      secure: true,
+    })
+    .status(200)
+    .json({ message: "User has been logged out." });
 };
