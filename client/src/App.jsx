@@ -5,8 +5,8 @@ import Home from "./pages/home/Home";
 import Lost from "./pages/lost/Lost";
 import Found from "./pages/found/Found";
 import Error from "./pages/error/Error";
-// import Axios from "axios";
-// import { API_URL } from "../config.js";
+import Axios from "axios";
+import { API_URL } from "../config.js";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 
@@ -26,18 +26,18 @@ function App() {
     setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await Axios.get(`${API_URL}/api/item`);
-  //       setFoundData(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching items:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await Axios.get(`${API_URL}/api/item`);
+        setFoundData(response.data);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <>

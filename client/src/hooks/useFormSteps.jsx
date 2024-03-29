@@ -24,14 +24,21 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
 
         const addItem = async () => {
           try {
-            await Axios.post(`${API_URL}/api/item`, {
-              what: data.what,
-              who: data.who,
-              place: data.place,
-              date: data.date,
-              time: data.time,
-              email: data.email,
-            });
+            const response = await Axios.post(
+              `${API_URL}/api/item`,
+              {
+                what: data.what,
+                who: data.who,
+                place: data.place,
+                date: data.date,
+                time: data.time,
+                email: data.email,
+              },
+              {
+                withCredentials: true,
+              }
+            );
+            console.log(response.data.message);
           } catch (error) {
             console.error("Error adding item:", error);
           }
