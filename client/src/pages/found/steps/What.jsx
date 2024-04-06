@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import "./found.scss";
 
 const What = (props) => {
   return (

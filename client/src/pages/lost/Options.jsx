@@ -9,8 +9,8 @@ const Results = ({
   return (
     <>
       <form onSubmit={handleSubmit} className="form">
-        <div className="form-element">
-          <div>
+        <div className="top-container">
+          <div className="element">
             <h1 className="title">What did you lose?</h1>
             <select
               className="select-box"
@@ -27,7 +27,7 @@ const Results = ({
           </div>
         </div>
 
-        <div className="actions">
+        <div className="bottom-container">
           {isFirstStep ? (
             <button type="submit" className="btn inverse">
               next

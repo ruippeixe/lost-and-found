@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import "./found.scss";
 
 const Email = (props) => {
   return (
     <div>
       <h1 className="title">How to reach you?</h1>
 
-      <input className="input-box"
+      <input
+        className="input-box"
         type="email"
         value={props.data.email || ""}
         onChange={(e) => props.updateFieldHandler("email", e.target.value)}

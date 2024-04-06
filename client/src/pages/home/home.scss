@@ -1,14 +1,30 @@
 .home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  flex-direction: column;
 
-	.title {
-		font-size: 4.5rem;
-		margin-bottom: 40px;
-		font-weight: 800;
-    text-align: center;
-	}
+  .choose {
+    height: calc(100vh - 64px - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .top-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      height: 45%;
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 800;
+        text-align: center;
+      }
+    }
+
+    .bottom-container {
+      display: flex;
+      align-items: start;
+      height: 55%;
+      padding-top: 40px;
+    }
+  }
 }

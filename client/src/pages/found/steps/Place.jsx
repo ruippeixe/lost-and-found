@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import "./found.scss";
 
 const Place = (props) => {
   return (
     <div>
       <h1 className="title">Where was it?</h1>
 
-      <input className="input-box"
+      <input
+        className="input-box"
         type="text"
         value={props.data.place || ""}
         onChange={(e) => props.updateFieldHandler("place", e.target.value)}

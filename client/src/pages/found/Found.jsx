@@ -1,22 +1,24 @@
 import PropTypes from "prop-types";
-// import { useState } from 'react'
-import useFormSteps from "../../hooks/useFormSteps";
 import { Link } from "react-router-dom";
-import NavBar from "../navigation/NavBar";
-import What from "./What";
-import Who from "./Who";
-import Place from "./Place";
-import Date from "./Date";
-import Time from "./Time";
-import Email from "./Email";
-import Thanks from "./Thanks";
-import Steps from "./Steps";
+
+import NavBar from "../../components/navbar/NavBar";
+import Footer from "../../components/footer/Footer";
+import What from "./steps/What";
+import Who from "./steps/Who";
+import Place from "./steps/Place";
+import Date from "./steps/Date";
+import Time from "./steps/Time";
+import Email from "./steps/Email";
+import Thanks from "./steps/Thanks";
+
+import useFormSteps from "../../hooks/useFormSteps";
+import CounterWidget from "./counter-widget/CounterWidget";
+
 import "./found.scss";
-import "../../hooks/useFormSteps";
 
 const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
-  document.title = 'L&F - Found';
-  
+  document.title = "L&F - Found";
+
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
       return { ...prev, [key]: value };
@@ -49,14 +51,14 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
 
   return (
     <div className="found">
-      <Steps currentStepIndex={currentStepIndex} selectedWhat={data.what} />
-
       <NavBar cleanFormFields={cleanFormFields} />
 
       <form onSubmit={handleSubmit} className="form">
-        <div className="form-element">{currentComponent}</div>
+        <div className="top-container">
+          <div className="element">{currentComponent}</div>
+        </div>
 
-        <div className="actions">
+        <div className="bottom-container">
           {!isFirstStep && !isLastStep && (
             <button type="button" onClick={back} className="btn">
               back
@@ -76,6 +78,13 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
           )}
         </div>
       </form>
+
+      <CounterWidget
+        currentStepIndex={currentStepIndex}
+        selectedWhat={data.what}
+      />
+
+      <Footer />
     </div>
   );
 };

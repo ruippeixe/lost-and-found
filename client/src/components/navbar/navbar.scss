@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+
+  .info,
+  .items {
+    display: flex;
+    align-items: center;
+  }
+
+  .info {
+    .logo {
+      font-weight: 800;
+    }
+
+    .go-back {
+      max-width: 16px;
+    }
+
+    .current-location {
+      margin-left: 8px;
+      font-weight: 800;
+    }
+  }
+
+  .items {
+    li {
+      margin-left: 8px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import "./counter-widget.scss";
 
-const Steps = ({ currentStepIndex, selectedWhat }) => {
+const CounterWidget = ({ currentStepIndex, selectedWhat }) => {
   let arrayLength;
 
   if (selectedWhat === "passport") {
@@ -21,7 +22,7 @@ const Steps = ({ currentStepIndex, selectedWhat }) => {
   return (
     <>
       {selectedWhat && (
-        <div className="steps-counter">
+        <div className="counter-widget">
           {[...Array(arrayLength)].map((_, index) => (
             <div
               key={index}
@@ -34,9 +35,9 @@ const Steps = ({ currentStepIndex, selectedWhat }) => {
   );
 };
 
-Steps.propTypes = {
+CounterWidget.propTypes = {
   selectedWhat: PropTypes.string.isRequired,
   currentStepIndex: PropTypes.number.isRequired,
 };
 
-export default Steps;
+export default CounterWidget;

@@ -1,5 +1,3 @@
-import "./found.scss";
-
 const Thanks = () => {
   return (
     <div>

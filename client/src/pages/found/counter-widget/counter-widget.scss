@@ -1,0 +1,21 @@
+.found {
+  .counter-widget {
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    right: 0;
+
+    .step {
+      flex-direction: column;
+      margin-bottom: 16px;
+      padding: 4px;
+      border: 2px solid black;
+      border-radius: 50%;
+
+      &.active {
+        background-color: black;
+      }
+    }
+  }
+}

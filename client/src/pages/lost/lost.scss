@@ -2,120 +2,133 @@
   height: 100vh;
 
   .form {
-    height: calc(100% - 107.59px);
-
-    .form-element {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 60%;
-
-      .title {
-        font-size: 4.5rem;
-        font-weight: 800;
-        margin-bottom: 24px;
-        text-align: center;
-      }
-
-      .select-box {
-        width: 100%;
-        border: none;
-        border-bottom: 4px solid black;
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: black;
-        padding: 8px 16px;
-        background-color: inherit;
-        height: 48px;
-      }
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .query-search {
-    height: calc(100% - 107.59px);
+    height: calc(100vh - 64px - 48px);
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .query-input {
+    .top-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      min-height: 60%;
+      justify-content: end;
+      height: 50%;
 
-      .title {
-        font-size: 4.5rem;
-        font-weight: 800;
-        margin-bottom: 24px;
-        text-align: center;
-      }
+      .element {
+        .title {
+          font-size: 4.5rem;
+          font-weight: 800;
+          margin-bottom: 24px;
+          text-align: center;
+        }
 
-      .input-box {
-        width: 100%;
-        border: none;
-        border-bottom: 4px solid black;
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: black;
-        padding: 8px 16px;
-        background-color: inherit;
-        height: 48px;
+        .select-box {
+          width: 100%;
+          border: none;
+          border-bottom: 4px solid black;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: black;
+          padding: 8px 16px;
+          background-color: inherit;
+          height: 48px;
+        }
       }
     }
 
-    .query-result {
+    .bottom-container {
       display: flex;
-      width: 100%;
-      justify-content: center;
-      padding-bottom: 40px;
+      align-items: start;
+      height: 50%;
+      padding-top: 40px;
+    }
+  }
 
-      ul {
+  .query-search {
+    height: calc(100vh - 64px - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .top-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      height: 50%;
+
+      .query-input {
+        .title {
+          font-size: 4.5rem;
+          font-weight: 800;
+          margin-bottom: 24px;
+          text-align: center;
+        }
+
+        .input-box {
+          width: 100%;
+          border: none;
+          border-bottom: 4px solid black;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: black;
+          padding: 8px 16px;
+          background-color: inherit;
+          height: 48px;
+        }
+      }
+    }
+
+    .bottom-container {
+      display: flex;
+      align-items: start;
+      height: 50%;
+      padding-top: 40px;
+      width: 100%;
+      overflow: auto;
+
+      .query-result {
         width: 100%;
 
-        li {
-          &.dropdown {
-            font-size: 2rem;
-            font-weight: 600;
-            border-bottom: 1px solid lightgray;
-            padding: 8px 0;
+        ul {
+          width: 100%;
 
-            &:last-child {
-              border-bottom: none;
-            }
-
-            &.not-found {
+          li {
+            &.dropdown {
               font-size: 2rem;
-              font-weight: 700;
-              text-align: center;
-              color: gray;
-            }
+              font-weight: 600;
+              border-bottom: 1px solid lightgray;
+              padding: 8px 0;
 
-            .elem {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-
-            .elem-content {
-              padding: 8px;
-
-              .subtitle {
-                font-size: 1.5rem;
-                font-weight: 600;
-                margin-bottom: 4px;
-                text-transform: uppercase;
+              &:last-child {
+                border-bottom: none;
               }
 
-              p {
-                font-size: 1rem;
-                margin-bottom: 8px;
+              &.not-found {
+                font-size: 2rem;
+                font-weight: 700;
+                text-align: center;
+                color: gray;
+              }
+
+              .elem {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .elem-content {
+                padding: 8px;
+
+                .subtitle {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                  margin-bottom: 4px;
+                  text-transform: uppercase;
+                }
+
+                p {
+                  font-size: 1rem;
+                  margin-bottom: 8px;
+                }
               }
             }
           }

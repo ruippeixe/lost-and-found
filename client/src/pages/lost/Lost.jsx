@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import NavBar from "../navigation/NavBar";
+
+import NavBar from "../../components/navbar/NavBar";
+import Footer from "../../components/footer/Footer";
 import Results from "./Results";
 import Options from "./Options";
+
 import "./lost.scss";
 
 const Lost = ({ foundData }) => {
@@ -66,6 +69,8 @@ const Lost = ({ foundData }) => {
           query={query}
         />
       )}
+
+      <Footer />
     </div>
   );
 };
