@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form className="form">
+      <form onSubmit={handleSubmit} className="form">
         <div className="top-container">
           <div className="element">
             <h1 className="title">Welcome back!</h1>
@@ -59,7 +59,7 @@ const Login = () => {
 
         <div className="bottom-container">
           <div className="element">
-            <button onClick={handleSubmit} className="btn inverse w-100 mb-8">
+            <button type="submit" className="btn inverse w-100 mb-8">
               Login
             </button>
             {error && <p>{error}</p>}

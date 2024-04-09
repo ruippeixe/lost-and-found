@@ -36,7 +36,7 @@ const Register = () => {
 
   return (
     <div className="register">
-      <form className="form">
+      <form onSubmit={handleSubmit} className="form">
         <div className="top-container">
           <div className="element">
             <h1 className="title">Create an Account</h1>
@@ -69,7 +69,7 @@ const Register = () => {
 
         <div className="bottom-container">
           <div className="element">
-            <button onClick={handleSubmit} className="btn inverse w-100 mb-8">
+            <button type="submit" className="btn inverse w-100 mb-8">
               Register
             </button>
             {error && <p>{error}</p>}
