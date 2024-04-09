@@ -26,8 +26,14 @@
   }
 
   .items {
-    li {
-      margin-left: 8px;
+    .username {
+      margin-right: 8px;
+    }
+
+    .login {
+      text-decoration: none;
+      margin-right: 16px;
+      font-size: 0.875rem;
     }
   }
 }

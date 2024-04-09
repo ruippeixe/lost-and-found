@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import "./navbar.scss";
-import leftArrow from "../../imgs/leftArrow.svg";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+
+import "./navbar.scss";
+
+import leftArrow from "../../imgs/leftArrow.svg";
 
 const NavBar = ({ cleanFormFields }) => {
   const location = useLocation();
@@ -49,15 +50,26 @@ const NavBar = ({ cleanFormFields }) => {
       <ul className="items">
         {/* retrieving user from local storage */}
         <li>
-          <span>{currentUser?.username}</span>
+          <span className="username">{currentUser?.username}</span>
         </li>
         {/* logout and delete cookies and local storage */}
         <li>
           <span>
             {currentUser ? (
-              <span onClick={logout}>Logout</span>
+              <span onClick={logout} className="btn auth logout">
+                Logout
+              </span>
             ) : (
-              <Link to="/login">Login</Link>
+              <Link to="/login" className="login">
+                Login
+              </Link>
+            )}
+          </span>
+          <span>
+            {!currentUser && (
+              <Link to="/register" className="btn auth">
+                Register
+              </Link>
             )}
           </span>
         </li>
