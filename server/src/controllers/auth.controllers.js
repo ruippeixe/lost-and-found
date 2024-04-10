@@ -13,8 +13,16 @@ export const register = async (req, res) => {
       [username, email]
     );
 
+    // Check if username or email already exist
     if (userData.length) {
-      return res.status(409).json({ message: "User already exists." });
+      const existingUser = userData.find((user) => user.username === username);
+      const existingEmail = userData.find((user) => user.email === email);
+
+      if (existingUser) {
+        return res.status(409).json({ message: "Username already exists." });
+      } else {
+        return res.status(409).json({ message: "Email already exists." });
+      }
     }
 
     // Hashing password for security
@@ -55,7 +63,7 @@ export const login = async (req, res) => {
     );
 
     if (!isPasswordCorrect)
-      return res.status(400).json({ message: "Wrong username or password." });
+      return res.status(400).json({ message: "Password is invalid." });
 
     // Generates a JWT using the user ID and the JWT key
     const token = jwt.sign({ id: userData[0].id }, JWT_KEY);
@@ -69,8 +77,6 @@ export const login = async (req, res) => {
       })
       .status(200)
       .json(other);
-
-    // return res.sendStatus(200);
   } catch (error) {
     console.error("Error logging in user:", error);
     return res.status(500).json({ message: "Something went wrong." });

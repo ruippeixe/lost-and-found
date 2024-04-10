@@ -12,7 +12,8 @@ const Login = () => {
     password: "",
   });
 
-  const [error, setError] = useState(null);
+  const [usernameError, setUsernameError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -24,11 +25,18 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await login(inputs);
       navigate("/");
     } catch (error) {
-      setError(error.response.data.message);
+      if (error.response.status === 404) {
+        setUsernameError(error.response.data.message);
+        setPasswordError(null);
+      } else if (error.response.status === 400) {
+        setUsernameError(null);
+        setPasswordError(error.response.data.message);
+      }
     }
   };
 
@@ -38,22 +46,30 @@ const Login = () => {
         <div className="top-container">
           <div className="element">
             <h1 className="title">Welcome back!</h1>
-            <label>Username</label>
-            <input
-              className="input-box"
-              type="text"
-              name="username"
-              onChange={handleChange}
-              required
-            />
-            <label>Password</label>
-            <input
-              className="input-box"
-              type="password"
-              name="password"
-              onChange={handleChange}
-              required
-            />
+
+            <div className={`field ${usernameError ? "error" : ""}`}>
+              <label className="label">Username</label>
+              <input
+                className="input-box"
+                type="text"
+                name="username"
+                onChange={handleChange}
+                required
+              />
+              {usernameError && <p className="info">{usernameError}</p>}
+            </div>
+
+            <div className={`field ${passwordError ? "error" : ""}`}>
+              <label className="label">Password</label>
+              <input
+                className="input-box"
+                type="password"
+                name="password"
+                onChange={handleChange}
+                required
+              />
+              {passwordError && <p className="info">{passwordError}</p>}
+            </div>
           </div>
         </div>
 
@@ -62,7 +78,6 @@ const Login = () => {
             <button type="submit" className="btn inverse w-100 mb-8">
               Login
             </button>
-            {error && <p>{error}</p>}
             <span className="link">
               Need an account? <Link to="/register">Register</Link>
             </span>
