@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Axios from "axios";
 
@@ -24,9 +24,24 @@ function App() {
 
   const [foundData, setFoundData] = useState([]);
 
+  const location = useLocation();
+
   const cleanFormFields = () => {
-    setData(Object.fromEntries(Object.keys(data).map((key) => [key, ""])));
+    setData({
+      what: "",
+      who: "",
+      place: "",
+      date: "",
+      time: "",
+      email: "",
+    });
   };
+
+  useEffect(() => {
+    if (location.pathname === "/found") {
+      cleanFormFields();
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const fetchData = async () => {

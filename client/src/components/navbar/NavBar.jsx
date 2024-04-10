@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
@@ -7,7 +6,7 @@ import "./navbar.scss";
 
 import leftArrow from "../../imgs/leftArrow.svg";
 
-const NavBar = ({ cleanFormFields }) => {
+const NavBar = () => {
   const location = useLocation();
   const path = location.pathname.toLowerCase();
 
@@ -21,21 +20,16 @@ const NavBar = ({ cleanFormFields }) => {
     }
   };
 
-  const handleCleanFormFields = () => {
-    if (path === "/found") return cleanFormFields();
-    return;
-  };
-
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
     <nav className="navbar-parent">
       <ul className="info">
-        <li className="">
+        <li>
           {location.pathname === "/" ? (
             <p className="logo">L&F</p>
           ) : (
-            <Link to="/" onClick={handleCleanFormFields}>
+            <Link to="/">
               <img
                 className="go-back"
                 src={leftArrow}
@@ -79,7 +73,3 @@ const NavBar = ({ cleanFormFields }) => {
 };
 
 export default NavBar;
-
-NavBar.propTypes = {
-  cleanFormFields: PropTypes.func,
-};
