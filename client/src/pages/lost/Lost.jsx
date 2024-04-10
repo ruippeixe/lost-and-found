@@ -49,7 +49,7 @@ const Lost = ({ foundData }) => {
   };
 
   return (
-    <div className="lost">
+    <div className="lost-parent">
       <NavBar />
 
       {isFirstStep && (

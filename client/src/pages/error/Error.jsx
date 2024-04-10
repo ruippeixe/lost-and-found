@@ -6,7 +6,7 @@ const Error = () => {
   document.title = "L&F - Oops...";
 
   return (
-    <div className="error">
+    <div className="error-parent">
       <div className="title">Sorry, the page was not found.</div>
 
       <Link to="/">

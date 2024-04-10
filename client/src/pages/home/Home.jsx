@@ -10,7 +10,7 @@ const Home = () => {
   document.title = "Lost & Found";
 
   return (
-    <div className="home">
+    <div className="home-parent">
       <NavBar />
 
       <div className="choose">

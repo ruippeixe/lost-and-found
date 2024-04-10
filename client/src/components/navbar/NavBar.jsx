@@ -29,7 +29,7 @@ const NavBar = ({ cleanFormFields }) => {
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar-parent">
       <ul className="info">
         <li className="">
           {location.pathname === "/" ? (

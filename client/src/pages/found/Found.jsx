@@ -50,7 +50,7 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
   };
 
   return (
-    <div className="found">
+    <div className="found-parent">
       <NavBar cleanFormFields={cleanFormFields} />
 
       <form onSubmit={handleSubmit} className="form">

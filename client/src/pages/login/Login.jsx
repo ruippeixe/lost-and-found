@@ -41,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login-parent">
       <form onSubmit={handleSubmit} className="form">
         <div className="top-container">
           <div className="element">

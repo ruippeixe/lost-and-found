@@ -45,7 +45,7 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
+    <div className="register-parent">
       <form onSubmit={handleSubmit} className="form">
         <div className="top-container">
           <div className="element">
