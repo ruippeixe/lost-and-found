@@ -92,7 +92,6 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
 Found.propTypes = {
   data: PropTypes.object.isRequired,
   setData: PropTypes.func.isRequired,
-  foundData: PropTypes.array.isRequired,
   setFoundData: PropTypes.func.isRequired,
   cleanFormFields: PropTypes.func.isRequired,
 };

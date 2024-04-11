@@ -69,7 +69,6 @@ function App() {
                   <Found
                     data={data}
                     setData={setData}
-                    foundData={foundData}
                     setFoundData={setFoundData}
                     cleanFormFields={cleanFormFields}
                   />
