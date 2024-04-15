@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { API_URL } from "../../../config.js";
 
@@ -20,6 +20,9 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const { page } = location.state || { page: "/" };
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -30,7 +33,9 @@ const Register = () => {
     try {
       const res = await Axios.post(`${API_URL}/api/auth/register`, inputs);
       console.log(res.data.message);
-      navigate("/login");
+
+      if (page === "/found") navigate("/login", { state: { page } });
+      else navigate("/");
     } catch (error) {
       if (error.response.status === 409) {
         if (error.response.data.message === "Username already exists.") {
@@ -94,7 +99,10 @@ const Register = () => {
               Register
             </button>
             <span className="link">
-              Already have an account? <Link to="/login">Login</Link>
+              Already have an account?{" "}
+              <Link to="/login" state={{ page: page }}>
+                Login
+              </Link>
             </span>
           </div>
         </div>

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Axios from "axios";
 
 import { API_URL } from "../../config.js";
+import { AuthContext } from "../context/authContext";
 
 const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const { currentUser } = useContext(AuthContext);
 
   async function addItemToDatabase() {
     try {
@@ -43,7 +45,11 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
     if (currentStepIndex === 0 && data.what === "keys")
       return setCurrentStepIndex((prev) => prev + 2);
 
-    if (currentStepIndex === steps.length - 2) addItemToDatabase();
+    if (currentStepIndex === steps.length - 2) {
+      if (!currentUser) return;
+
+      addItemToDatabase();
+    }
 
     return setCurrentStepIndex((prev) => prev + 1);
   }

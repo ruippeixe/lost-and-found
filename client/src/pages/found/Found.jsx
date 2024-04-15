@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
@@ -11,6 +12,7 @@ import Time from "./steps/Time";
 import Email from "./steps/Email";
 import Thanks from "./steps/Thanks";
 
+import { AuthContext } from "../../context/authContext";
 import useFormSteps from "../../hooks/useFormSteps";
 import CounterWidget from "./counter-widget/CounterWidget";
 
@@ -18,6 +20,8 @@ import "./found.scss";
 
 const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
   document.title = "L&F - Found";
+
+  const { currentUser } = useContext(AuthContext);
 
   const updateFieldHandler = (key, value) => {
     setData((prev) => {
@@ -75,6 +79,17 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
                 go back to home page
               </button>
             </Link>
+          )}
+
+          {!currentUser && (
+            <>
+              <Link to="/login" state={{ page: location.pathname }}>
+                login
+              </Link>
+              <Link to="/register" state={{ page: location.pathname }}>
+                register
+              </Link>
+            </>
           )}
         </div>
       </form>

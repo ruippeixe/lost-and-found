@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../context/authContext";
 
 import "./login.scss";
@@ -19,6 +20,9 @@ const Login = () => {
 
   const { login } = useContext(AuthContext);
 
+  const location = useLocation();
+  const { page } = location.state || { page: "/" };
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -28,7 +32,7 @@ const Login = () => {
 
     try {
       await login(inputs);
-      navigate("/");
+      navigate(page);
     } catch (error) {
       if (error.response.status === 404) {
         setUsernameError(error.response.data.message);
@@ -79,7 +83,10 @@ const Login = () => {
               Login
             </button>
             <span className="link">
-              Need an account? <Link to="/register">Register</Link>
+              Need an account?{" "}
+              <Link to="/register" state={{ page: page }}>
+                Register
+              </Link>
             </span>
           </div>
         </div>
