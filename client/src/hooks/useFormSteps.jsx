@@ -61,6 +61,8 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
     next,
     isFirstStep: currentStepIndex === 0,
     isLastStep: currentStepIndex === steps.length - 1,
+    setCurrentStepIndex,
+    steps,
   };
 };
 

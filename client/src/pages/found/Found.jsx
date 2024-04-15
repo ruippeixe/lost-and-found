@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
@@ -46,12 +46,39 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
     isFirstStep,
     isLastStep,
     currentStepIndex,
+    setCurrentStepIndex,
+    steps,
   } = useFormSteps(formSteps, data, setFoundData, cleanFormFields);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     next();
   };
+
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+
+  const storeData = () => {
+    // Store data in sessionStorage when navigating away from the page
+    sessionStorage.setItem("foundData", JSON.stringify(data));
+  };
+
+  useEffect(() => {
+    // Retrieve data from sessionStorage when coming back to the page
+    const storedData = sessionStorage.getItem("foundData");
+    if (storedData) {
+      setData(JSON.parse(storedData));
+      setIsDataLoaded(true);
+    }
+  }, [setData]);
+
+  useEffect(() => {
+    // Clear sessionStorage after populating the form
+    if (currentUser && isDataLoaded) {
+      sessionStorage.removeItem("foundData");
+      setCurrentStepIndex(steps.length - 2);
+      setIsDataLoaded(false);
+    }
+  }, [currentUser, isDataLoaded, setCurrentStepIndex, currentStepIndex, steps]);
 
   return (
     <div className="found-parent">
@@ -81,12 +108,21 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
             </Link>
           )}
 
-          {!currentUser && (
+          {!currentUser && currentStepIndex === formSteps.length - 2 && (
             <>
-              <Link to="/login" state={{ page: location.pathname }}>
+              <Link
+                onClick={storeData}
+                to="/login"
+                state={{ page: location.pathname }}
+              >
                 login
               </Link>
-              <Link to="/register" state={{ page: location.pathname }}>
+
+              <Link
+                onClick={storeData}
+                to="/register"
+                state={{ page: location.pathname }}
+              >
                 register
               </Link>
             </>
