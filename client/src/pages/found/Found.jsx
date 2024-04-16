@@ -48,6 +48,7 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
     currentStepIndex,
     setCurrentStepIndex,
     steps,
+    isSubmitButtonClicked,
   } = useFormSteps(formSteps, data, setFoundData, cleanFormFields);
 
   const handleSubmit = (e) => {
@@ -90,42 +91,50 @@ const Found = ({ data, setData, setFoundData, cleanFormFields }) => {
         </div>
 
         <div className="bottom-container">
-          {!isFirstStep && !isLastStep && (
-            <button type="button" onClick={back} className="btn">
-              back
-            </button>
-          )}
-
-          {!isLastStep ? (
-            <button type="submit" className="btn inverse">
-              {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
-            </button>
-          ) : (
-            <Link to="/">
-              <button type="button" className="btn inverse">
-                go back to home page
+          <div className="buttons">
+            {!isFirstStep && !isLastStep && (
+              <button type="button" onClick={back} className="btn">
+                back
               </button>
-            </Link>
-          )}
+            )}
 
-          {!currentUser && currentStepIndex === formSteps.length - 2 && (
-            <>
-              <Link
-                onClick={storeData}
-                to="/login"
-                state={{ page: location.pathname }}
+            {!isLastStep ? (
+              <button
+                type="submit"
+                className={`btn inverse ${
+                  isSubmitButtonClicked ? "disabled" : ""
+                }`}
               >
-                login
+                {currentStepIndex === formSteps.length - 2 ? "submit" : "next"}
+              </button>
+            ) : (
+              <Link to="/">
+                <button type="button" className="btn inverse">
+                  go back to home page
+                </button>
               </Link>
+            )}
+          </div>
 
+          {!currentUser && isSubmitButtonClicked && (
+            <p className="auth-warning">
+              You need to be authenticated before submitting. Please{" "}
               <Link
                 onClick={storeData}
                 to="/register"
                 state={{ page: location.pathname }}
               >
-                register
+                Register
+              </Link>{" "}
+              or{" "}
+              <Link
+                onClick={storeData}
+                to="/login"
+                state={{ page: location.pathname }}
+              >
+                Login
               </Link>
-            </>
+            </p>
           )}
         </div>
       </form>

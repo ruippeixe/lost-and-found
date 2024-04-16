@@ -7,6 +7,7 @@ import { AuthContext } from "../context/authContext";
 const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const { currentUser } = useContext(AuthContext);
+  const [isSubmitButtonClicked, setIsSubmitButtonClicked] = useState(false);
 
   async function addItemToDatabase() {
     try {
@@ -46,7 +47,10 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
       return setCurrentStepIndex((prev) => prev + 2);
 
     if (currentStepIndex === steps.length - 2) {
-      if (!currentUser) return;
+      if (!currentUser) {
+        setIsSubmitButtonClicked(true);
+        return;
+      }
 
       addItemToDatabase();
     }
@@ -63,6 +67,7 @@ const useFormSteps = (steps, data, setFoundData, cleanFormFields) => {
     isLastStep: currentStepIndex === steps.length - 1,
     setCurrentStepIndex,
     steps,
+    isSubmitButtonClicked,
   };
 };
 
