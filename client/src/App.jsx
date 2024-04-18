@@ -11,6 +11,7 @@ import Found from "./pages/found/Found";
 import Error from "./pages/error/Error";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import Dashboard from "./Dashboard";
 
 function App() {
   const [data, setData] = useState({
@@ -80,6 +81,8 @@ function App() {
 
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </Col>
         </Row>
