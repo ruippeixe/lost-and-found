@@ -11,7 +11,7 @@ import Found from "./pages/found/Found";
 import Error from "./pages/error/Error";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import Dashboard from "./Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   const [data, setData] = useState({

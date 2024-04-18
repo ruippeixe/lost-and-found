@@ -42,10 +42,11 @@ const NavBar = () => {
       </ul>
 
       <ul className="items">
-        {/* retrieving user from local storage */}
-        <li>
-          <span className="username">{currentUser?.username}</span>
-        </li>
+        {currentUser && (
+          <li className="dashboard">
+            <Link to="/dashboard">dashboard</Link>
+          </li>
+        )}
         {/* logout and delete cookies and local storage */}
         <li>
           <span>

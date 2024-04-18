@@ -26,8 +26,12 @@
   }
 
   .items {
-    .username {
-      margin-right: 8px;
+    .dashboard {
+      padding-right: 16px;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .login {

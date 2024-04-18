@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
 
-import { AuthContext } from "./context/authContext";
-import { API_URL } from "../config";
+import { AuthContext } from "../../context/authContext";
+import { API_URL } from "../../../config";
 
 const Dashboard = () => {
   const [items, setItems] = useState([]);
