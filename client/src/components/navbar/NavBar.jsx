@@ -15,6 +15,8 @@ const NavBar = () => {
       return "| Found";
     } else if (path === "/lost") {
       return "| Lost";
+    } else if (path === "/dashboard") {
+      return "| Dashboard";
     } else {
       return "";
     }
@@ -41,7 +43,7 @@ const NavBar = () => {
         <li className="current-location">{getPageNameFromPath()}</li>
       </ul>
 
-      <ul className="items">
+      <ul className="menu">
         {currentUser && (
           <li className="dashboard">
             <Link to="/dashboard">dashboard</Link>

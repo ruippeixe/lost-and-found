@@ -1,0 +1,153 @@
+.dashboard-parent {
+  height: 100vh;
+  position: relative;
+
+  .not-authenticated {
+    height: calc(100vh - 64px - 48px);
+
+    .top-container {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      height: 50%;
+
+      .warning {
+        text-align: center;
+
+        .title {
+          font-size: 4.5rem;
+          font-weight: 800;
+          margin-bottom: 16px;
+        }
+        .sub-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: gray;
+        }
+      }
+    }
+
+    .bottom-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 50%;
+
+      .button {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .items {
+    height: calc(100vh - 64px - 48px);
+    display: flex;
+    flex-direction: column;
+
+    .top-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      margin-bottom: 40px;
+
+      height: 25%;
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .sub-title {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+
+    .bottom-container {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      height: 75%;
+      overflow: auto;
+
+      .not-found {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        .title {
+          font-size: 2rem;
+          font-weight: 700;
+          text-align: center;
+          color: gray;
+        }
+      }
+
+      .element {
+        display: flex;
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 24px;
+
+        border: 1px solid black;
+
+        .delete {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-width: 64px;
+          background-color: #e6e6e6;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: red;
+          }
+
+          .icon {
+            max-height: 24px;
+          }
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          padding: 8px 24px;
+          width: 100%;
+
+          .info,
+          .where {
+            height: 100%;
+
+            .label {
+              font-size: 1rem;
+              font-weight: 700;
+
+              span {
+                font-weight: 400;
+              }
+            }
+          }
+
+          .info {
+            width: 70%;
+
+            .what {
+              margin-bottom: 8px;
+            }
+          }
+
+          .where {
+            height: 100%;
+            text-align: right;
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+}
