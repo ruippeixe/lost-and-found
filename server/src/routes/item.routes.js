@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   addItem,
-  getItem,
+  getItems,
   getUserItems,
   deleteUserItem,
 } from "../controllers/item.controllers.js";
@@ -9,7 +9,7 @@ import {
 const router = Router();
 
 router.post("/item", addItem);
-router.get("/item", getItem);
+router.get("/item", getItems);
 router.get("/item/:id", getUserItems);
 router.delete("/item/:id", deleteUserItem);
 

@@ -27,7 +27,7 @@ export const addItem = async (req, res) => {
   }
 };
 
-export const getItem = async (req, res) => {
+export const getItems = async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM items");
     res.json(rows);
