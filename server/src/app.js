@@ -1,13 +1,16 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+
+import { CLIENT_URL } from "./config.js";
+
 import auth from "./routes/auth.routes.js";
 import item from "./routes/item.routes.js";
-import cookieParser from "cookie-parser"
 
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: CLIENT_URL,
   credentials: true,
 };
 

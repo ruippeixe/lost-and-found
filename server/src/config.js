@@ -11,3 +11,5 @@ export const DB_PORT = process.env.DB_PORT || 3306;
 export const DB_DATABASE = process.env.DB_DATABASE || "lostAndFound";
 
 export const JWT_KEY = process.env.JWT_KEY || "jwtkey";
+
+export const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
