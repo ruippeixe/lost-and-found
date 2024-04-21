@@ -12,6 +12,7 @@ import Error from "./pages/error/Error";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   const [data, setData] = useState({
@@ -83,6 +84,7 @@ function App() {
               <Route path="/login" element={<Login />} />
 
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </Col>
         </Row>
