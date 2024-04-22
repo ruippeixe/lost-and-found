@@ -106,6 +106,16 @@ export const updateUserEmail = async (req, res) => {
   const userEmail = req.body.email;
 
   try {
+    // Check if the newly entered email already exists for any user
+    const [userData] = await pool.query("SELECT * FROM users WHERE email = ?", [
+      userEmail,
+    ]);
+
+    if (userData.length) {
+      return res.status(409).json({ message: "Email already exists." });
+    }
+
+    // Update the email of a user in the database
     await pool.query("UPDATE users SET email = ? WHERE id = ?", [
       userEmail,
       userId,

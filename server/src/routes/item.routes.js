@@ -10,10 +10,10 @@ import {
 
 const router = Router();
 
-router.post("/item", addItem);
-router.get("/item", getItems);
-router.get("/item/:id", getUserItems);
-router.delete("/item/:id", deleteUserItem);
+router.post("/", addItem);
+router.get("/", getItems);
+router.get("/:id", getUserItems);
+router.delete("/:id", deleteUserItem);
 
 router.get("/email/:id", getUserEmail);
 router.put("/email/:id", updateUserEmail);

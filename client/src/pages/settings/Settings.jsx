@@ -21,22 +21,22 @@ const Settings = () => {
   useEffect(() => {
     const fetchEmail = async () => {
       try {
-        const res = await Axios.get(`${API_URL}/api/email/${userId}`);
+        const res = await Axios.get(`${API_URL}/api/item/email/${userId}`);
         setEmail(res.data);
       } catch (err) {
         console.log(err);
       }
     };
+
     fetchEmail();
   }, [userId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEdit(false);
 
     try {
       const res = await Axios.put(
-        `${API_URL}/api/email/${userId}`,
+        `${API_URL}/api/item/email/${userId}`,
         {
           email: email,
         },
@@ -45,6 +45,7 @@ const Settings = () => {
         }
       );
 
+      setEdit(false);
       console.log(res.data.message);
     } catch (err) {
       console.log(err);
