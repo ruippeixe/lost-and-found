@@ -1,4 +1,4 @@
-import { pool as db } from "../db.js";
+import { db } from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { JWT_KEY } from "../config.js";
@@ -16,7 +16,6 @@ export const register = async (req, res) => {
     // Check if username or email already exist
     if (userData.length) {
       const existingUser = userData.find((user) => user.username === username);
-      const existingEmail = userData.find((user) => user.email === email);
 
       if (existingUser) {
         return res.status(409).json({ message: "Username already exists." });

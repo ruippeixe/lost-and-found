@@ -1,5 +1,5 @@
 import { JWT_KEY } from "../config.js";
-import { pool } from "../db.js";
+import { db } from "../db.js";
 import jwt from "jsonwebtoken";
 
 export const addItem = async (req, res) => {
@@ -15,7 +15,7 @@ export const addItem = async (req, res) => {
     const { what, who, place, date, time, email } = req.body;
 
     // Insert item into database
-    await pool.query(
+    await db.query(
       "INSERT INTO items(what, who, place, date, time, email, uid) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [what, who, place, date, time, email, userInfo.id]
     );
@@ -28,9 +28,10 @@ export const addItem = async (req, res) => {
 };
 
 export const getItems = async (req, res) => {
+  // Retrieve items from the database
   try {
-    const [rows] = await pool.query("SELECT * FROM items");
-    res.json(rows);
+    const [rows] = await db.query("SELECT * FROM items");
+    res.status(200).json(rows);
   } catch (error) {
     console.error("Error fetching items:", error);
     return res.status(500).json({ message: "Something went wrong." });
@@ -40,11 +41,9 @@ export const getItems = async (req, res) => {
 export const getUserItems = async (req, res) => {
   const userId = req.params.id;
 
+  // Retrieve items associated with the specified user.
   try {
-    const [rows] = await pool.query(
-      "SELECT * FROM items WHERE uid = ?",
-      userId
-    );
+    const [rows] = await db.query("SELECT * FROM items WHERE uid = ?", userId);
 
     return res.status(200).json(rows);
   } catch (error) {
@@ -64,8 +63,9 @@ export const deleteUserItem = async (req, res) => {
 
   const itemId = req.params.id;
 
+  // Deletes an item if authenticated.
   try {
-    await pool.query("DELETE FROM items WHERE `id` = ? AND `uid` = ?", [
+    await db.query("DELETE FROM items WHERE `id` = ? AND `uid` = ?", [
       itemId,
       userInfo.id,
     ]);
@@ -80,8 +80,9 @@ export const deleteUserItem = async (req, res) => {
 export const getUserEmail = async (req, res) => {
   const userId = req.params.id;
 
+  // Retrieves the email of the user.
   try {
-    const [rows] = await pool.query(
+    const [rows] = await db.query(
       "SELECT email FROM users WHERE id = ?",
       userId
     );
@@ -107,7 +108,7 @@ export const updateUserEmail = async (req, res) => {
 
   try {
     // Check if the newly entered email already exists for any user
-    const [userData] = await pool.query("SELECT * FROM users WHERE email = ?", [
+    const [userData] = await db.query("SELECT * FROM users WHERE email = ?", [
       userEmail,
     ]);
 
@@ -115,8 +116,8 @@ export const updateUserEmail = async (req, res) => {
       return res.status(409).json({ message: "Email already exists." });
     }
 
-    // Update the email of a user in the database
-    await pool.query("UPDATE users SET email = ? WHERE id = ?", [
+    // Updates the email of the user.
+    await db.query("UPDATE users SET email = ? WHERE id = ?", [
       userEmail,
       userId,
     ]);
