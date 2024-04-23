@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
+
 import { AuthContext } from "../../context/authContext";
 
 import "./navbar.scss";
 
-import leftArrow from "../../imgs/leftArrow.svg";
+import leftArrow from "../../imgs/left-arrow.svg";
+import settingsIcon from "../../imgs/settings-icon.svg";
 
 const NavBar = () => {
   const location = useLocation();
@@ -17,6 +19,8 @@ const NavBar = () => {
       return "| Lost";
     } else if (path === "/dashboard") {
       return "| Dashboard";
+    } else if (path === "/settings") {
+      return "| Settings";
     } else {
       return "";
     }
@@ -45,30 +49,35 @@ const NavBar = () => {
 
       <ul className="menu">
         {currentUser && (
-          <li className="dashboard">
-            <Link to="/dashboard">dashboard</Link>
-          </li>
+          <>
+            <li>
+              <Link to="/dashboard" className="dashboard">
+                Dashboard
+              </Link>
+            </li>
+            <li className="settings">
+              <Link to="/settings" className="btn nav icon">
+                <img src={settingsIcon} alt="settings page button" />
+              </Link>
+            </li>
+          </>
         )}
         {/* logout and delete cookies and local storage */}
         <li>
-          <span>
-            {currentUser ? (
-              <span onClick={logout} className="btn auth logout">
-                Logout
-              </span>
-            ) : (
-              <Link to="/login" className="login">
-                Login
-              </Link>
-            )}
-          </span>
-          <span>
-            {!currentUser && (
-              <Link to="/register" className="btn auth">
-                Register
-              </Link>
-            )}
-          </span>
+          {currentUser ? (
+            <span onClick={logout} className="btn nav">
+              Logout
+            </span>
+          ) : (
+            <Link to="/login" className="login">
+              Login
+            </Link>
+          )}
+          {!currentUser && (
+            <Link to="/register" className="btn nav">
+              Register
+            </Link>
+          )}
         </li>
       </ul>
     </nav>

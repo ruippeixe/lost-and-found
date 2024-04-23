@@ -17,13 +17,23 @@
     margin-right: 0;
   }
 
-  &.auth {
+  &.nav {
     text-transform: none;
     font-weight: 400;
     font-size: 0.875rem;
     padding: 6px 16px;
     border: 1px solid black;
     border-radius: 4px;
+    height: 32px;
+
+    &.icon {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    img {
+      max-width: 24px;
+    }
   }
 
   &.settings-btn {
