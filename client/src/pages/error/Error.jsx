@@ -10,9 +10,7 @@ const Error = () => {
       <div className="title">Sorry, the page was not found.</div>
 
       <Link to="/">
-        <button type="button" className="btn inverse">
-          go back to homepage
-        </button>
+        <div className="btn inverse">go back to homepage</div>
       </Link>
     </div>
   );

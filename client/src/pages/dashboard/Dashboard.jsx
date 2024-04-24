@@ -19,16 +19,19 @@ const Dashboard = () => {
   const userId = currentUser?.id;
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const res = await Axios.get(`${API_URL}/api/item/${userId}`);
-        setItems(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchItems();
-  }, [userId]);
+    if (currentUser) {
+      const fetchItems = async () => {
+        try {
+          const res = await Axios.get(`${API_URL}/api/item/${userId}`);
+          setItems(res.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      fetchItems();
+    }
+  }, [userId, currentUser]);
 
   const handleDeleteItem = async (itemId) => {
     try {
