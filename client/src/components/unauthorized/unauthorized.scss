@@ -1,0 +1,36 @@
+.unauthorized {
+  height: calc(100vh - 64px - 48px);
+
+  .top-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 50%;
+
+    .warning {
+      text-align: center;
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 800;
+        margin-bottom: 16px;
+      }
+      .sub-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: gray;
+      }
+    }
+  }
+
+  .bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+
+    .button {
+      margin-top: 40px;
+    }
+  }
+}
