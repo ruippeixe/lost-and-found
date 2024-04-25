@@ -4,8 +4,7 @@ Welcome to Lost & Found, a digital platform for users to report and search for l
 
 ## Introduction
 
-This is a full stack web application built for managing lost and found items. The application includes features such as multi-step forms, dynamic rendering, and search functionality. \
-Items reported by users are stored in a database, facilitating easy retrieval and management. \
+This is a full stack web application, with basic CRUD (Create, Read, Update, Delete) operations, built for managing lost and found items. The application includes features such as multi-step forms, dynamic rendering, search functionality and user authentication. \
 It serves as a centralized system where individuals can report and search information about items they have lost or found, making it easier for them to recover their belongings.
 
 ## Getting Started
@@ -24,9 +23,13 @@ To run this project locally, follow these steps:
 
 Upon entering the Lost & Found application, the homepage prompts users to choose between 'Lost' and 'Found.' If something is lost, users can click 'Lost' to fill out a straightforward multi-step form, providing details about the item. Similarly, if an item is found, users should select 'Found' and provide relevant details.
 
-After submission, the results page becomes the centralized hub, displaying comprehensive information about lost or found items. Users can efficiently search it by utilizing the search functionality on the Found page, refining their criteria for targeted results.
+Prior to submitting the data, authentication is required. This entails either creating an account and subsequently logging in, or directly logging in if an account already exists.
 
-Each result offers a snapshot, and by clicking on a specific item, users can access additional details contributed by the person who reported it. Navigation is made easy with a user-friendly bar, allowing seamless movement between different sections of the application.
+Users can efficiently search items by utilizing the search functionality on the Found page, refining their criteria for targeted results. Each result offers a snapshot, and by clicking on a specific item, users can access additional details contributed by the person who reported it.
+
+Navigation is made easy with a user-friendly bar, allowing seamless movement between different sections of the application.
+
+Authenticated users can manage their added items by accessing a dedicated deletion page. Additionally, they can update their email account on another page.
 
 ## Deployment
 
@@ -44,7 +47,7 @@ This web application is hosted on an **AWS** **VPS** (Virtual Private Server) ru
 - Node.js
 - Express
 - MySQL
-- SASS
+- CSS/SASS
 - Bootstrap (grid)
 
 ## Contact
