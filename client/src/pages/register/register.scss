@@ -15,12 +15,20 @@
       justify-content: end;
       height: 70%;
 
+      @media only screen and (max-height: 768px) {
+        height: 90%;
+      }
+
       .element {
         .title {
           font-size: 4.5rem;
           font-weight: 800;
           margin-bottom: 40px;
           text-align: center;
+
+          @media only screen and (max-width: 768px) {
+            font-size: 3rem;
+          }
         }
 
         .field {
@@ -78,6 +86,11 @@
       height: 30%;
       padding-top: 40px;
       width: 100%;
+
+      @media only screen and (max-height: 768px) {
+        // background-color: red;
+        height: 10%;
+      }
 
       .element {
         display: flex;

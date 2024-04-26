@@ -14,11 +14,20 @@
         font-size: 4.5rem;
         font-weight: 800;
         margin-bottom: 16px;
+
+        @media only screen and (max-width: 768px) {
+          font-size: 3rem;
+        }
       }
+
       .sub-title {
         font-size: 2rem;
         font-weight: 700;
         color: gray;
+
+        @media only screen and (max-width: 768px) {
+          font-size: 1.5rem;
+        }
       }
     }
   }
