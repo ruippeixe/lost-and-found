@@ -121,20 +121,43 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                cursor: pointer;
+
+                .desc {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+
+                  @media only screen and (max-width: 768px) {
+                    font-size: 1.25rem;
+                  }
+                }
+
+                .expand {
+                  content: url("../../imgs/expand-icon.svg");
+
+                  &.open {
+                    transform: rotate(180deg);
+                  }
+                }
               }
 
               .elem-content {
                 padding: 8px;
 
-                .subtitle {
-                  font-size: 1.5rem;
-                  font-weight: 600;
+                .info {
+                  font-size: 1.25rem;
+                  font-weight: 800;
+                  text-transform: capitalize;
                   margin-bottom: 4px;
-                  text-transform: uppercase;
+
+                  @media only screen and (max-width: 768px) {
+                    font-size: 1rem;
+                  }
                 }
 
-                p {
+                .details {
                   font-size: 1rem;
+                  font-weight: 400;
                   margin-bottom: 8px;
                 }
               }

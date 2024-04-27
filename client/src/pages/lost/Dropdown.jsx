@@ -5,12 +5,12 @@ const Dropdown = ({ value, index, dropdown }) => {
     <>
       {dropdown === index && (
         <div className="elem-content">
-          <h3 className="subtitle">location, date & time</h3>
-          <p>
+          <h3 className="info">location, date & time</h3>
+          <p className="details">
             {value.place}, {value.date}, {value.time}
           </p>
-          <h3 className="subtitle">contact the finder</h3>
-          <p>{value.email}</p>
+          <h3 className="info">contact the finder</h3>
+          <p className="details">{value.email}</p>
         </div>
       )}
     </>

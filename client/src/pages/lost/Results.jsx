@@ -5,9 +5,11 @@ import Dropdown from "./Dropdown";
 
 const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
   const [dropdown, setDropdown] = useState(null);
+  const [isOpen, setIsOpen] = useState(null);
 
   const toggleDropdown = (index) => {
     setDropdown((prevDropdown) => (prevDropdown === index ? null : index));
+    setIsOpen((prevIsOpen) => (prevIsOpen === index ? null : index));
   };
 
   return (
@@ -34,8 +36,8 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
               <ul>
                 {filteredItems.map((value, index) => (
                   <li key={uuidv4()} className="dropdown">
-                    <div className="elem">
-                      <h2>
+                    <div className="elem" onClick={() => toggleDropdown(index)}>
+                      <h2 className="desc">
                         {query
                           ? selectedItem === "passport"
                             ? value.who
@@ -43,12 +45,9 @@ const Results = ({ selectedItem, setQuery, filteredItems, query }) => {
                           : ""}
                       </h2>
 
-                      <button
-                        className="btn dropdown"
-                        onClick={() => toggleDropdown(index)}
-                      >
-                        see details
-                      </button>
+                      <div
+                        className={`expand ${isOpen === index ? "open" : ""}`}
+                      ></div>
                     </div>
 
                     <Dropdown
