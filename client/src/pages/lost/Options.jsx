@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Results = ({
+const Options = ({
   updateFieldHandler,
   selectedItem,
   isFirstStep,
@@ -39,11 +39,11 @@ const Results = ({
   );
 };
 
-Results.propTypes = {
+Options.propTypes = {
   updateFieldHandler: PropTypes.func.isRequired,
   selectedItem: PropTypes.string.isRequired,
   isFirstStep: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };
 
-export default Results;
+export default Options;
