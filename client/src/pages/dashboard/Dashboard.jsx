@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
 
@@ -12,7 +13,7 @@ import "./dashboard.scss";
 
 import deleteIcon from "../../imgs/delete-icon.svg";
 
-const Dashboard = () => {
+const Dashboard = ({ setUpdateFoundData }) => {
   const [items, setItems] = useState([]);
 
   const { currentUser } = useContext(AuthContext);
@@ -42,6 +43,8 @@ const Dashboard = () => {
 
       // Filter out the deleted item
       setItems(items.filter((item) => item.id !== itemId));
+
+      setUpdateFoundData((prev) => !prev);
     } catch (err) {
       console.log(err);
     }
@@ -111,6 +114,10 @@ const Dashboard = () => {
       <Footer />
     </div>
   );
+};
+
+Dashboard.propTypes = {
+  setUpdateFoundData: PropTypes.func.isRequired,
 };
 
 export default Dashboard;

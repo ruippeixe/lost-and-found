@@ -25,6 +25,7 @@ function App() {
   });
 
   const [foundData, setFoundData] = useState([]);
+  const [updateFoundData, setUpdateFoundData] = useState(false);
 
   const location = useLocation();
 
@@ -56,7 +57,7 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [updateFoundData]);
 
   return (
     <>
@@ -83,7 +84,10 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
 
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard setUpdateFoundData={setUpdateFoundData} />}
+              />
               <Route path="/settings" element={<Settings />} />
             </Routes>
           </Col>
