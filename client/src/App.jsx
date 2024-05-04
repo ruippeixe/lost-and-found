@@ -13,7 +13,6 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Settings from "./pages/settings/Settings";
-import GoogleMaps from "./pages/google-maps/GoogleMaps";
 
 function App() {
   const [data, setData] = useState({
@@ -90,8 +89,6 @@ function App() {
                 element={<Dashboard setUpdateFoundData={setUpdateFoundData} />}
               />
               <Route path="/settings" element={<Settings />} />
-
-              <Route path="/map" element={<GoogleMaps />} />
             </Routes>
           </Col>
         </Row>
