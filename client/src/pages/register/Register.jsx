@@ -17,6 +17,7 @@ const Register = () => {
 
   const [usernameError, setUsernameError] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -27,8 +28,13 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleInvalid = () => {
+    setPasswordError(true);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPasswordError(false);
 
     try {
       const res = await Axios.post(`${API_URL}/api/auth/register`, inputs);
@@ -80,15 +86,23 @@ const Register = () => {
               {emailError && <p className="info">{emailError}</p>}
             </div>
 
-            <div className="field">
+            <div className={`field ${passwordError ? "error" : ""}`}>
               <label className="label">Password</label>
               <input
                 className="input-box"
                 type="password"
                 name="password"
                 onChange={handleChange}
+                onInvalid={handleInvalid}
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,}$"
                 required
               />
+              {passwordError && (
+                <p className="info">
+                  Password must be 6+ characters with at least 1 letter, 1
+                  digit, and 1 special character.
+                </p>
+              )}
             </div>
           </div>
         </div>
