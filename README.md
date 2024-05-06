@@ -4,7 +4,8 @@ Welcome to Lost & Found, a digital platform for users to report and search for l
 
 ## Introduction
 
-This is a full stack web application, with basic CRUD (Create, Read, Update, Delete) operations, built for managing lost and found items. The application includes features such as multi-step forms, dynamic rendering, search functionality and user authentication. \
+This is a full stack web application, with basic CRUD (Create, Read, Update, Delete) operations, built for managing lost and found items. \
+The application includes features such as multi-step forms, dynamic rendering, search functionality and user authentication. Additionally, the application leverages the Google Maps API for location tracking and visualization. \
 It serves as a centralized system where individuals can report and search information about items they have lost or found, making it easier for them to recover their belongings.
 
 ## Getting Started
@@ -49,6 +50,7 @@ This web application is hosted on an **AWS** **VPS** (Virtual Private Server) ru
 - MySQL
 - CSS/SASS
 - Bootstrap (grid)
+- Google Maps API
 
 ## Contact
 
