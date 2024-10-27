@@ -49,6 +49,7 @@ This web application is hosted on an **AWS** **VPS** (Virtual Private Server) ru
 - Express
 - MySQL
 - CSS/SASS
+- HTML
 - Bootstrap (grid)
 - Google Maps API
 
