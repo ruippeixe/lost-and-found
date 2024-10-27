@@ -1,6 +1,9 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+import { AuthContext } from "../../context/authContext";
+import useFormSteps from "../../hooks/useFormSteps";
 
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
@@ -11,9 +14,6 @@ import Date from "./steps/Date";
 import Time from "./steps/Time";
 import Email from "./steps/Email";
 import Thanks from "./steps/Thanks";
-
-import { AuthContext } from "../../context/authContext";
-import useFormSteps from "../../hooks/useFormSteps";
 import CounterWidget from "./counter-widget/CounterWidget";
 
 import "./found.scss";

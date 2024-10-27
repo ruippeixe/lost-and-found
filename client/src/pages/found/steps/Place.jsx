@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import GoogleMaps from "../../../components/google-maps/GoogleMaps";
 import pinDropIcon from "../../../imgs/pin_drop-icon.svg";

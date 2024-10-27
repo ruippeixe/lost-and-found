@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";

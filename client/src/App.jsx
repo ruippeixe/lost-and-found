@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import Axios from "axios";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import Axios from "axios";
 
 import { API_URL } from "../config.js";
 

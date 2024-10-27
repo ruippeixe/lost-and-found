@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import "./error.scss";
 import "../../styles/buttons.scss";
 

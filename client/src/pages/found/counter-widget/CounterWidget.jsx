@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import "./counter-widget.scss";
 
 const CounterWidget = ({ currentStepIndex, selectedWhat }) => {

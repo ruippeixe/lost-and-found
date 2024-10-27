@@ -1,13 +1,13 @@
-import PropTypes from "prop-types";
 import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
+import PropTypes from "prop-types";
+
+import { AuthContext } from "../../context/authContext";
+import { API_URL } from "../../../config";
 
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Unauthorized from "../../components/unauthorized/Unauthorized";
-
-import { AuthContext } from "../../context/authContext";
-import { API_URL } from "../../../config";
 
 import "./dashboard.scss";
 

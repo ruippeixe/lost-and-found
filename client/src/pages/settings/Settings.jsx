@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import Axios from "axios";
 
+import { API_URL } from "../../../config";
+import { AuthContext } from "../../context/authContext";
+
 import NavBar from "../../components/navbar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Unauthorized from "../../components/unauthorized/Unauthorized";
-
-import { API_URL } from "../../../config";
-import { AuthContext } from "../../context/authContext";
 
 import "./settings.scss";
 

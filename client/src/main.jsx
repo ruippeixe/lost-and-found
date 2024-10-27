@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "normalize.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "./index.css";
+import App from "./App.jsx";
 
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext.jsx";
